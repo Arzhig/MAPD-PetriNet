@@ -1,22 +1,45 @@
 package packnp;
 
+import java.util.List;
+
 import items.Place;
 import items.Transition;
 import items.edge.EdgeIn;
 import items.edge.EdgeOut;
 
 public class PetriNetImplementation implements PetriNet{
+	
+	private List<Place> places;
+	private List<Transition> transitions;
+	
+	public PetriNetImplementation() {
+		
+	}
+	
+	public List<Place> getPlaces(){
+		return this.places;
+	}
+	
+	public Place getPlace(int i) {
+		return this.getPlaces().get(i);
+	}
+	
+	public List<Transition> getTransitions(){
+		return this.transitions;
+	}
+	
+	public Transition getTransition(int i) {
+		return this.getTransitions().get(i);
+	}
 
 	@Override
 	public void add(Place place) {
-		// TODO Auto-generated method stub
-		
+		this.getPlaces().add(place);
 	}
 
 	@Override
 	public void add(Transition transition) {
-		// TODO Auto-generated method stub
-		
+		this.getTransitions().add(transition);
 	}
 
 	@Override
