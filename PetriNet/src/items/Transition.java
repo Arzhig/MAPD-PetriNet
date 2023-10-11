@@ -15,7 +15,7 @@ public class Transition {
 	}
 	
 	public void step() {
-		boolean isTriggerable = false;
+		boolean isTriggerable = true;
 		for (EdgeOut outEdge : outEdges) {
 			isTriggerable = outEdge.isTriggerable() && isTriggerable;
 		}
