@@ -8,11 +8,11 @@ public class EdgeZero extends EdgeOut{
 	}
 	
 	public boolean isTriggerable() {
-		return(this.place.getToken()==0);
+		return(this.getPlace().getToken()==0);
 	}
 	
 	public void trigger() {
-		this.place.remove(0);
+		this.getPlace().remove(0);
 	}
 
 }
