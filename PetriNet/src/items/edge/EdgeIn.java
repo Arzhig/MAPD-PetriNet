@@ -3,12 +3,12 @@ import items.*;
 
 public class EdgeIn extends Edge{
 
-	public EdgeIn(int value, Transition transition, Place place) {
-		super(value, transition, place);
+	public EdgeIn(int value, Place place) {
+		super(value, place);
 	}
 	
 	public void trigger() {
-		this.place.add(value);
+		this.getPlace().add(this.getValue());
 	}
 
 }

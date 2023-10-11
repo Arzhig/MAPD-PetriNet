@@ -1,15 +1,19 @@
 package items.edge;
 import items.*;
 
+/**
+ * The `Edge` class represents an edge in a Petri net simulation, connecting a transition to a place.
+ * This class stores information about the edge's value, the associated transition, and the associated place.
+ * 
+ * @author Yann Lerquemain
+ */
 public class Edge {
-	protected int value;
-	protected Transition transition;
-	protected Place place;
+	private int value;
+	private Place place;
 	
 	
-	public Edge(int value, Transition transition, Place place) {
+	public Edge(int value, Place place) {
 		this.value = value;
-		this.transition = transition;
 		this.place = place;
 	}
 	
@@ -19,14 +23,6 @@ public class Edge {
 	
 	public void setValue(int value) {
 		this.value = value;
-	}
-
-	public Transition getTransition() {
-		return transition;
-	}
-
-	public void setTransition(Transition transition) {
-		this.transition = transition;
 	}
 
 	public Place getPlace() {

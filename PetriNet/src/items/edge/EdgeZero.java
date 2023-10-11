@@ -3,8 +3,8 @@ import items.*;
 
 public class EdgeZero extends EdgeOut{
 
-	public EdgeZero(int value, Transition transition, Place place) {
-		super(value, transition, place);
+	public EdgeZero(int value, Place place) {
+		super(value, place);
 	}
 	
 	public boolean isTriggerable() {

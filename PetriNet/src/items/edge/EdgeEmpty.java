@@ -1,17 +1,17 @@
 package items.edge;
-import items.*
+import items.*;
 
 public class EdgeEmpty extends EdgeOut{
 
-	public EdgeEmpty(int value, Transition transition, Place place) {
-		super(value, transition, place);
+	public EdgeEmpty(int value, Place place) {
+		super(value, place);
 	}
 	
 	public boolean isTriggerable() {
-		return(this.place.getToken()>0);
+		return(this.getPlace().getToken()>0);
 	}
 	
 	public void trigger() {
-		this.place.remove(this.place.getToken());
+		this.getPlace().remove(this.getPlace().getToken());
 	}
 }
