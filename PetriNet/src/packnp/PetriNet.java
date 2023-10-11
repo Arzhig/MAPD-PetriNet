@@ -2,6 +2,8 @@ package packnp;
 
 import items.Place;
 import items.Transition;
+import items.edge.EdgeIn;
+import items.edge.EdgeOut;
 
 public interface PetriNet {
 
@@ -41,9 +43,9 @@ public interface PetriNet {
 	
 	/*removes an EdgeOut between a place and a transition*/
 	
-	public void remove(Place place, Transition transition);
+	public void remove(EdgeOut outEdge);
 	
 	/*removes an EdgeIn between a transition and a place*/
 	
-	public void remove(Transition transition, Place place);
+	public void remove(EdgeIn inEdge);
 }
