@@ -3,16 +3,16 @@ import items.*;
 
 public class EdgeOut extends Edge{
 
-	public EdgeOut(int value, Transition transition, Place place) {
-		super(value, transition, place);
+	public EdgeOut(int value, Place place) {
+		super(value, place);
 	}
 
 	public boolean isTriggerable() {
-		return(this.place.getToken()>=this.value);
+		return(this.getPlace().getToken()>=this.getValue());
 	}
 	
 	public void trigger() {
-		this.place.remove(value);
+		this.getPlace().remove(this.getValue());
 	}
 
 }
