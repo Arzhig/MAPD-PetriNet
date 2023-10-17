@@ -44,4 +44,12 @@ public class Transition {
 	public void add(EdgeIn inEdge) {
 		this.getInEdges().add(inEdge);
 	}
+	
+	public void remove(EdgeOut outEdge) {
+		this.getOutEdges().remove(outEdge);
+	}
+	
+	public void remove(EdgeIn inEdge) {
+		this.getInEdges().remove(inEdge);
+	}
 }

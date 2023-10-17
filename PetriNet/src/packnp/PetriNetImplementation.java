@@ -85,13 +85,16 @@ public class PetriNetImplementation implements PetriNet{
 
 	@Override
 	public void remove(EdgeOut outEdge) {
-
+		for (Transition transition : this.getTransitions()) {
+			transition.remove(outEdge);
+		}
 	}
 
 	@Override
 	public void remove(EdgeIn inEdge) {
-		// TODO Auto-generated method stub
-		
+		for (Transition transition : this.getTransitions()) {
+			transition.remove(inEdge);
+		}
 	}
 
 }
