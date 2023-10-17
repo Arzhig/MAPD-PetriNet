@@ -14,6 +14,14 @@ public class Transition {
 		
 	}
 	
+	public List<EdgeOut> getOutEdges(){
+		return this.outEdges;
+	}
+	
+	public List<EdgeIn> getInEdges(){
+		return this.inEdges;
+	}
+	
 	public void step() {
 		boolean isTriggerable = true;
 		for (EdgeOut outEdge : outEdges) {
@@ -27,5 +35,13 @@ public class Transition {
 				inEdge.trigger();
 			}
 		}
+	}
+	
+	public void add(EdgeOut outEdge) {
+		this.getOutEdges().add(outEdge);
+	}
+	
+	public void add(EdgeIn inEdge) {
+		this.getInEdges().add(inEdge);
 	}
 }

@@ -11,11 +11,11 @@ public class EdgeZero extends EdgeOut {
     /**
      * Constructs a new `EdgeZero` with the specified value and place.
      *
-     * @param value      The value associated with the `EdgeZero`.
+     * @param value      The value is fixed at 0 as it is triggered when the place contains zero token.
      * @param place      The place connected by the `EdgeZero`.
      */
-    public EdgeZero(int value, Place place) {
-        super(value, place);
+    public EdgeZero(Place place) {
+        super(0, place);
     }
 
     /**

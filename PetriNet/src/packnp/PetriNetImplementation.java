@@ -6,6 +6,8 @@ import items.Place;
 import items.Transition;
 import items.edge.EdgeIn;
 import items.edge.EdgeOut;
+import items.edge.EdgeZero;
+import items.edge.EdgeEmpty;
 
 public class PetriNetImplementation implements PetriNet{
 	
@@ -44,50 +46,46 @@ public class PetriNetImplementation implements PetriNet{
 
 	@Override
 	public void add(Place place, Transition transition, int value) {
-		// TODO Auto-generated method stub
-		
+		EdgeOut outEdge = new EdgeOut(value, place);
+		transition.add(outEdge);
 	}
 
 	@Override
 	public void addZero(Place place, Transition transition) {
-		// TODO Auto-generated method stub
-		
+		EdgeZero zeroEdge = new EdgeZero(place);
+		transition.add(zeroEdge);	
 	}
 
 	@Override
 	public void addEmpty(Place place, Transition transition) {
-		// TODO Auto-generated method stub
-		
+		EdgeEmpty emptyEdge = new EdgeEmpty(place);
+		transition.add(emptyEdge);	
 	}
 
 	@Override
 	public void add(Transition transition, Place place, int value) {
-		// TODO Auto-generated method stub
-		
+		EdgeIn inEdge = new EdgeIn(value,place);
+		transition.add(inEdge);
 	}
 
 	@Override
 	public void step(Transition transition) {
-		// TODO Auto-generated method stub
-		
+		transition.step();
 	}
 
 	@Override
 	public void remove(Place place) {
-		// TODO Auto-generated method stub
-		
+		this.getPlaces().remove(place);
 	}
 
 	@Override
 	public void remove(Transition transition) {
-		// TODO Auto-generated method stub
-		
+		this.getTransitions().remove(transition);
 	}
 
 	@Override
 	public void remove(EdgeOut outEdge) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

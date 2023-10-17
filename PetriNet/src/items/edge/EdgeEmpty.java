@@ -12,11 +12,11 @@ public class EdgeEmpty extends EdgeOut {
     /**
      * Constructs a new `EdgeEmpty` with the specified value and place.
      *
-     * @param value      The value associated with the `EdgeEmpty`.
+     * @param value      The value is fixed at -1 as a convention to identify an EdgeEmpty.
      * @param place      The place connected by the `EdgeEmpty`.
      */
-    public EdgeEmpty(int value, Place place) {
-        super(value, place);
+    public EdgeEmpty(Place place) {
+        super(-1, place);
     }
 
     /**
