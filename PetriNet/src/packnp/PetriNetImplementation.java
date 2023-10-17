@@ -10,7 +10,16 @@ import items.edge.EdgeOut;
 import items.edge.EdgeZero;
 import items.edge.EdgeEmpty;
 
+/**
+ * The PetriNetImplementation class implements the PetriNet interface.
+ * It represents a PetriNet, containing places and transitions, linked by edges.
+ * 
+ * @author Quentin Rabilloud
+ */
+
 public class PetriNetImplementation implements PetriNet{
+	
+	//private fields
 	
 	private List<Place> places;
 	private List<Transition> transitions;

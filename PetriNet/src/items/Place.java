@@ -1,5 +1,12 @@
 package items;
 
+/**
+ * The Place class represents a place in a Petri net simulation, containing tokens.
+ * Each place stores a number of tokens evolving during the simulation.
+ * 
+ * @author Quentin Rabilloud
+ */
+
 public class Place {
 	
 	//private fields
@@ -19,7 +26,7 @@ public class Place {
 		this.token = newToken;
 	}
 	
-	/*adds a specified number of tokens to the place*/
+	/**adds a specified number of tokens to the place*/
 	
 	public void add(int aTokens) {
 		this.setToken(this.getToken() + aTokens); 

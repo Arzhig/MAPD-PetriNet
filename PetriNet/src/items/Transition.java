@@ -39,9 +39,11 @@ public class Transition {
 		}
 	}
 	
+	/** this is a comment to test for EdgeOut*/
 	public void add(EdgeOut outEdge) {
 		this.getOutEdges().add(outEdge);
 	}
+	
 	
 	public void add(EdgeIn inEdge) {
 		this.getInEdges().add(inEdge);
