@@ -1,5 +1,6 @@
 package packnp;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import items.Place;
@@ -15,7 +16,8 @@ public class PetriNetImplementation implements PetriNet{
 	private List<Transition> transitions;
 	
 	public PetriNetImplementation() {
-		
+		this.places = new LinkedList<Place>();
+		this.transitions = new LinkedList<Transition>();
 	}
 	
 	public List<Place> getPlaces(){

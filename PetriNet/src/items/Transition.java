@@ -1,4 +1,5 @@
 package items;
+import java.util.LinkedList;
 import java.util.List;
 import items.edge.EdgeIn;
 import items.edge.EdgeOut;
@@ -11,7 +12,8 @@ public class Transition {
 	private List<EdgeIn> inEdges;
 	
 	public Transition() {
-		
+		this.outEdges = new LinkedList<EdgeOut>();
+		this.inEdges = new LinkedList<EdgeIn>();
 	}
 	
 	public List<EdgeOut> getOutEdges(){
