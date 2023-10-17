@@ -5,6 +5,34 @@ import items.*;
 public class Test1 {
 
 	public static void main(String[] args) {
+		//Simple example : 1 origin place, 1 transition
 		PetriNetImplementation net1 = new PetriNetImplementation();
+		Place p1 = new Place(0);
+		Place p2 = new Place(0);
+		Transition t1 = new Transition();
+		net1.add(p1);
+		net1.add(p2);
+		net1.add(t1);
+		net1.add(p1, t1, 3);
+		net1.add(t1, p2, 2);
+		System.out.println("Tokens in p1 :"+p1.getToken()); // Expected 0
+		net1.getPlace(0).add(4);		
+		System.out.println("Tokens in p1 :"+p1.getToken()); // Expected 4
+		System.out.println("Tokens in p2 :"+p2.getToken()); // Expected 0
+		net1.step(t1); // Remove 3 tokens in p1, add 2 in p2
+		System.out.println("Tokens in p1 :"+p1.getToken()); // Expected 1
+		System.out.println("Tokens in p2 :"+p2.getToken()); // Expected 2
+		net1.step(t1); // Shouldn't be able to fire this one
+		System.out.println("Tokens in p1 :"+p1.getToken()); // Expected 1
+		System.out.println("Tokens in p2 :"+p2.getToken()); // Expected 2
+		t1.getOutEdges().get(0).setValue(1); //Set the edge value to 1
+		net1.step(t1); 
+		System.out.println("Tokens in p1 :"+p1.getToken()); // Expected 0
+		System.out.println("Tokens in p2 :"+p2.getToken()); // Expected 4
+		net1.getPlace(1).remove(4);
+		System.out.println("Tokens in p2 :"+p2.getToken()); // Expected 0
+		
+		
+		
 	}
 }
