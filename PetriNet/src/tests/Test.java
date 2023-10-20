@@ -2,6 +2,7 @@ package tests;
 
 import packnp.*;
 import items.*;
+import exceptions.*;
 
 public class Test {
 	
@@ -40,13 +41,10 @@ public class Test {
 			net.add(new Place(-1));
 			System.out.println("Err 2.1 : Added a place with a negative amount of tokens");
 		}
-		/**
-		 * TODO Add BadEntryException class
 		catch (BadEntryException e) {
 		    if (net.getPlaces().size() != nbPlaces)
 			System.out.println("Err 2.1 : Modified number of places though invalid token value");
 		}
-		*/
 		catch (Exception e) {
 		    System.out.println("Err 2.1 : Exception not handled : " + e);
 		    e.printStackTrace();

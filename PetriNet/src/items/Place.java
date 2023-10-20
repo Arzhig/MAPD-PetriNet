@@ -1,5 +1,7 @@
 package items;
 
+import exceptions.*;
+
 /**
  * The Place class represents a place in a Petri net simulation, containing tokens.
  * Each place stores a number of tokens evolving during the simulation.
@@ -14,8 +16,13 @@ public class Place {
 	//the current number of tokens in the place
 	private int token;
 	
-	public Place(int token) {
-		this.token = token;
+	public Place(int token) throws BadEntryException{
+		if (token>=0) {
+			this.token = token;
+		}
+		else {
+			throw new BadEntryException("Token amount is negative");
+		}
 	}
 	
 	public int getToken() {
