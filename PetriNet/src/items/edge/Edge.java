@@ -23,7 +23,7 @@ public class Edge {
      * @param value      The value associated with the edge.
      * @param place      The place connected by the edge.
      */
-	public Edge(int value, Place place) {
+	public Edge(int value, Place place){
 		this.value = value;
 		this.place = place;
 	}

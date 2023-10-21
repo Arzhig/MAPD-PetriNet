@@ -90,9 +90,50 @@ public class Test {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void addInEdgesTest() throws BadEntryException {
+		int nbInEdges = 0;
+
+		System.out.println("Testing addition of inEdges in a PetriNet");
+		
+		PetriNetImplementation net = new PetriNetImplementation();
+		//populating the net
+		net.add(new Place(0));
+		net.add(new Place(0));
+		net.add(new Transition());
+		
+		nbInEdges = net.getTransition(0).getInEdges().size();
+		try {
+			net.add(net.getTransition(0),net.getPlace(0),-1);
+			System.out.println("Err 4.1 : Added an EdgeIn with a negative weight.");
+		}
+		catch (BadEntryException e) {
+			nbInEdges = net.getTransition(0).getInEdges().size();
+		    if (net.getTransition(0).getInEdges().size() != nbInEdges) {
+		    	System.out.println("Err 4.1 : Modified number of InEdges though invalid weight value");
+		    }
+		}
+		catch (Exception e) {
+		    System.out.println("Err 4.1 : Exception not handled : " + e);
+		    e.printStackTrace();
+		}
+		
+		try {
+			net.add(net.getTransition(0),net.getPlace(0),2);
+			if (net.getTransition(0).getInEdges().size() != nbInEdges+1) {
+				System.out.println("Err 4.2 : Number of inEdges in transition didn't go up by 1 after adding 1 EdgeIn");
+			}
+		}
+		catch (Exception e) {
+		    System.out.println("Err 4.2 : Exception not handled : " + e);
+		    e.printStackTrace();
+		}
+		
+	}
+	
+	public static void main(String[] args) throws BadEntryException {
 		Test.initializationTest();
 		Test.addPlacesTest();
 		Test.addTransitionsTest();
+		Test.addInEdgesTest();
 	}
 }

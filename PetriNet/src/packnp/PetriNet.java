@@ -1,5 +1,6 @@
 package packnp;
 
+import exceptions.BadEntryException;
 import items.Place;
 import items.Transition;
 import items.edge.EdgeIn;
@@ -55,8 +56,9 @@ public interface PetriNet {
 	* @param transition the transition before the edge
 	* @param place 		the place after the edge
 	* @param value		the edge's value
+	 * @throws BadEntryException 
 	*/
-	public void add(Transition transition, Place place, int value);
+	public void add(Transition transition, Place place, int value) throws BadEntryException;
 
 	/**
 	* Launches a step for a transition

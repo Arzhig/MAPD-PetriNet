@@ -3,6 +3,7 @@ package packnp;
 import java.util.LinkedList;
 import java.util.List;
 
+import exceptions.BadEntryException;
 import items.Place;
 import items.Transition;
 import items.edge.EdgeIn;
@@ -74,7 +75,7 @@ public class PetriNetImplementation implements PetriNet{
 	}
 
 	@Override
-	public void add(Transition transition, Place place, int value) {
+	public void add(Transition transition, Place place, int value) throws BadEntryException {
 		EdgeIn inEdge = new EdgeIn(value,place);
 		transition.add(inEdge);
 	}
