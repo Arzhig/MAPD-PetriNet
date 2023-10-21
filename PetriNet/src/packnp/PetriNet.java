@@ -31,9 +31,10 @@ public interface PetriNet {
 	* @param place 		the place before the edge
 	* @param transition the transition after the edge
 	* @param value		the edge's value
+	* @throws BadEntryException 
 	*/
 	
-	public void add(Place place, Transition transition, int value);
+	public void add(Place place, Transition transition, int value) throws BadEntryException;
 	
 	/**
 	* Adds a ZeroEdge between a place and a Transition
