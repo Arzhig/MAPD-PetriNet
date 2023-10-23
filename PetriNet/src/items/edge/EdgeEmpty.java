@@ -1,4 +1,5 @@
 package items.edge;
+import exceptions.BadEntryException;
 import items.*;
 
 /**
@@ -14,8 +15,9 @@ public class EdgeEmpty extends EdgeOut {
      *
      * @param value      The value is fixed at -1 as a convention to identify an EdgeEmpty.
      * @param place      The place connected by the `EdgeEmpty`.
+     * @throws BadEntryException 
      */
-    public EdgeEmpty(Place place) {
+    public EdgeEmpty(Place place) throws BadEntryException {
         super(-1, place);
     }
 
