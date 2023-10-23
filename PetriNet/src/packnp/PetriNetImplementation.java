@@ -95,7 +95,7 @@ public class PetriNetImplementation implements PetriNet{
 			transition.add(inEdge);
 		}
 		else {
-			throw new BadEntryException("Already exisiting edge between this place and transition");
+			throw new BadEntryException("Already exisiting edge between this transition and place");
 		}
 	}
 
