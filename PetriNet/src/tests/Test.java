@@ -144,11 +144,68 @@ public class Test {
 		    e.printStackTrace();
 		}
 	}
+
+	public static void addOutEdgesTest() throws BadEntryException {
+		int nbOutEdges = 0;
+
+		System.out.println("Testing addition of OutEdges in a PetriNet");
+		
+		PetriNetImplementation net = new PetriNetImplementation();
+		//populating the net
+		net.add(new Place(0));
+		net.add(new Place(0));
+		net.add(new Transition());
+		
+		nbOutEdges = net.getTransition(0).getOutEdges().size();
+		try {
+			net.add(net.getPlace(0),net.getTransition(0),-1);
+			System.out.println("Err 5.1 : Added an EdgeOut with a negative weight.");
+		}
+		catch (BadEntryException e) {
+			nbOutEdges = net.getTransition(0).getOutEdges().size();
+		    if (net.getTransition(0).getOutEdges().size() != nbOutEdges) {
+		    	System.out.println("Err 5.1 : Modified number of OutEdges though invalid weight value");
+		    }
+		}
+		catch (Exception e) {
+		    System.out.println("Err 5.1 : Exception not handled : " + e);
+		    e.printStackTrace();
+		}
+		
+		try {
+			net.add(net.getPlace(0),net.getTransition(0),2);
+			if (net.getTransition(0).getOutEdges().size() != nbOutEdges+1) {
+				System.out.println("Err 5.2 : Number of OutEdges in transition didn't go up by 1 after adding 1 EdgeIn");
+			}
+		}
+		catch (Exception e) {
+		    System.out.println("Err 5.2 : Exception not handled : " + e);
+		    e.printStackTrace();
+		}
+		
+
+		nbOutEdges = net.getTransition(0).getOutEdges().size();
+		try {
+			net.add(net.getPlace(0),net.getTransition(0),3);
+			System.out.println("Err 5.3 : Added an EdgeOut where one already exists.");
+		}
+		catch (BadEntryException e) {
+		    if (net.getTransition(0).getOutEdges().size() != nbOutEdges) {
+		    	System.out.println("Err 5.3 : Modified number of OutEdges though invalid OutEdge");
+		    }
+		}
+		catch (Exception e) {
+		    System.out.println("Err 5.3 : Exception not handled : " + e);
+		    e.printStackTrace();
+		}
+	}
 	
 	public static void main(String[] args) throws BadEntryException {
 		Test.initializationTest();
 		Test.addPlacesTest();
 		Test.addTransitionsTest();
 		Test.addInEdgesTest();
+		Test.addOutEdgesTest();
+
 	}
 }
