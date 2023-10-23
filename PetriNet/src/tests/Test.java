@@ -107,7 +107,6 @@ public class Test {
 			System.out.println("Err 4.1 : Added an EdgeIn with a negative weight.");
 		}
 		catch (BadEntryException e) {
-			nbInEdges = net.getTransition(0).getInEdges().size();
 		    if (net.getTransition(0).getInEdges().size() != nbInEdges) {
 		    	System.out.println("Err 4.1 : Modified number of InEdges though invalid weight value");
 		    }
@@ -162,7 +161,6 @@ public class Test {
 			System.out.println("Err 5.1 : Added an EdgeOut with a negative weight.");
 		}
 		catch (BadEntryException e) {
-			nbOutEdges = net.getTransition(0).getOutEdges().size();
 		    if (net.getTransition(0).getOutEdges().size() != nbOutEdges) {
 		    	System.out.println("Err 5.1 : Modified number of OutEdges though invalid weight value");
 		    }
@@ -200,12 +198,22 @@ public class Test {
 		}
 	}
 	
+	public static void addZeroEdgesTest() throws BadEntryException {
+		//TODO
+	}
+	
+	public static void addEmptyEdgesTest() throws BadEntryException {
+		//TODO
+	}
+	
+	
 	public static void main(String[] args) throws BadEntryException {
 		Test.initializationTest();
 		Test.addPlacesTest();
 		Test.addTransitionsTest();
 		Test.addInEdgesTest();
 		Test.addOutEdgesTest();
-
+		Test.addZeroEdgesTest();
+		Test.addEmptyEdgesTest();
 	}
 }
