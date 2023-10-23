@@ -198,14 +198,34 @@ public class Test {
 		}
 	}
 	
+	
 	public static void addZeroEdgesTest() throws BadEntryException {
-		//TODO
+		int nbZeroEdges = 0;
+		
+		System.out.println("Testing addition of zero edges in a Petri Net");
+		
+		PetriNetImplementation net = new PetriNetImplementation();
+		//populating the net
+		net.add(new Place(0));
+		net.add(new Place(0));
+		net.add(new Transition());
+		
+		nbZeroEdges = net.getTransition(0).getOutEdges().size();
+		try {
+			net.addZero(net.getPlace(0), net.getTransition(0));
+			if (nbZeroEdges == net.getTransition(0).getOutEdges().size()) {
+				System.out.println("Err 6.1 : ZeroEdges was not added to the PetriNet.");
+			}
+		}
+		catch (Exception e) {
+			System.out.println("Err 6.1 : Exception not handled : " + e);
+		    e.printStackTrace();
+		}
 	}
 	
 	public static void addEmptyEdgesTest() throws BadEntryException {
 		//TODO
 	}
-	
 	
 	public static void main(String[] args) throws BadEntryException {
 		Test.initializationTest();
