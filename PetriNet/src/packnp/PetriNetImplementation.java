@@ -1,3 +1,4 @@
+//SYNCHRONISATION
 package packnp;
 
 import java.util.LinkedList;
