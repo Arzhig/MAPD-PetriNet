@@ -25,21 +25,36 @@ public class Place {
 		}
 	}
 	
+	/**
+	* @return current number of tokens in the place
+	*/
+	
 	public int getToken() {
 		return this.token;
 	}
+	
+	/**
+	* Changes the current number of tokens in the place
+	* @param newToken new number of tokens in the place
+	*/
 	
 	private void setToken(int newToken) {
 		this.token = newToken;
 	}
 	
-	/**adds a specified number of tokens to the place*/
+	/**
+	* Adds a specified number of tokens to the place
+	* @param aTokens number of tokens added to the place
+	*/
 	
 	public void add(int aTokens) {
 		this.setToken(this.getToken() + aTokens); 
 	}
 	
-	/*removes a specified numbers of tokens to the place*/
+	/**
+	* Removes a specified number of tokens to the place
+	* @param rTokens number of tokens removed from the place
+	*/
 	
 	public void remove(int rTokens) {
 		this.setToken(this.getToken() - rTokens);

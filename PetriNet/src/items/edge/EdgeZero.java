@@ -1,4 +1,5 @@
 package items.edge;
+import exceptions.BadEntryException;
 import items.*;
 /**
  * The `EdgeZero` class represents an edge in a Petri net simulation, going out of a Place and into a transition,
@@ -13,8 +14,9 @@ public class EdgeZero extends EdgeOut {
      *
      * @param value      The value is fixed at 0 as it is triggered when the place contains zero token.
      * @param place      The place connected by the `EdgeZero`.
+     * @throws BadEntryException 
      */
-    public EdgeZero(Place place) {
+    public EdgeZero(Place place) throws BadEntryException {
         super(0, place);
     }
 
