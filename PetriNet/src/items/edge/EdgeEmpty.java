@@ -18,7 +18,7 @@ public class EdgeEmpty extends EdgeOut {
      * @throws BadEntryException 
      */
     public EdgeEmpty(Place place) throws BadEntryException {
-        super(-1, place);
+        super(1, place);
     }
 
     /**
