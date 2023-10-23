@@ -22,7 +22,9 @@ public class EdgeOut extends Edge{
 			throw new BadEntryException("EdgeOut can't have a negative value");
 		}
 		else if (value==0) {
-			throw new BadEntryException("Consider adding a EdgeZero instead");
+			if(this.getClass()!=EdgeZero.class) {
+				throw new BadEntryException("Consider adding a EdgeZero instead");
+			}
 		}
 	}
 	/**
