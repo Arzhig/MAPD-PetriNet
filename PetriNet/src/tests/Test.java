@@ -128,12 +128,13 @@ public class Test {
 		    e.printStackTrace();
 		}
 		
+
+		nbInEdges = net.getTransition(0).getInEdges().size();
 		try {
 			net.add(net.getTransition(0),net.getPlace(0),3);
 			System.out.println("Err 4.3 : Added an EdgeIn where one already exists.");
 		}
 		catch (BadEntryException e) {
-			nbInEdges = net.getTransition(0).getInEdges().size();
 		    if (net.getTransition(0).getInEdges().size() != nbInEdges) {
 		    	System.out.println("Err 4.3 : Modified number of InEdges though invalid InEdge");
 		    }

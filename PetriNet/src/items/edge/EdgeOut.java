@@ -1,4 +1,5 @@
 package items.edge;
+import exceptions.BadEntryException;
 import items.*;
 
 /**
@@ -13,9 +14,16 @@ public class EdgeOut extends Edge{
      *
      * @param value      The value associated with the EdgeOut.
      * @param place      The place connected by the EdgeOut.
+	 * @throws BadEntryException 
      */
-	public EdgeOut(int value, Place place) {
+	public EdgeOut(int value, Place place) throws BadEntryException {
 		super(value, place);
+		if (value<0) {
+			throw new BadEntryException("EdgeOut can't have a negative value");
+		}
+		else if (value==0) {
+			throw new BadEntryException("Consider adding a EdgeZero instead");
+		}
 	}
 	/**
      * Checks whether this outgoing edge is triggerable based on the token count in the connected place.
