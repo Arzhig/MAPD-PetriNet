@@ -73,14 +73,32 @@ public class PetriNetImplementation implements PetriNet{
 
 	@Override
 	public void addZero(Place place, Transition transition) throws BadEntryException {
-		EdgeZero zeroEdge = new EdgeZero(place);
-		transition.add(zeroEdge);	
+		boolean exists = false;
+		for (EdgeOut e : transition.getOutEdges()) {
+			if (e.getPlace() == place) {exists = true;}
+		}
+		if (!exists) {
+			EdgeZero zeroEdge = new EdgeZero(place);
+			transition.add(zeroEdge);
+		}
+		else {
+			throw new BadEntryException("Already existing edge between this place and transition.");
+		}
 	}
 
 	@Override
 	public void addEmpty(Place place, Transition transition) throws BadEntryException {
-		EdgeEmpty emptyEdge = new EdgeEmpty(place);
-		transition.add(emptyEdge);	
+		boolean exists = false;
+		for (EdgeOut e : transition.getOutEdges()) {
+			if (e.getPlace() == place) {exists = true;}
+		}
+		if (!exists) {
+			EdgeEmpty emptyEdge = new EdgeEmpty(place);
+			transition.add(emptyEdge);	
+		}
+		else {
+			throw new BadEntryException("Already existing edge between this place and transition.");
+		}
 	}
 
 	@Override

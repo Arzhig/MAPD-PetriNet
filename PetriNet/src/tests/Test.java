@@ -213,18 +213,68 @@ public class Test {
 		nbZeroEdges = net.getTransition(0).getOutEdges().size();
 		try {
 			net.addZero(net.getPlace(0), net.getTransition(0));
-			if (nbZeroEdges == net.getTransition(0).getOutEdges().size()) {
-				System.out.println("Err 6.1 : ZeroEdges was not added to the PetriNet.");
+			if ((nbZeroEdges + 1) != net.getTransition(0).getOutEdges().size()) {
+				System.out.println("Err 6.1 : Number of ZeroEdges did not go up by one after adding one ZeroEdge.");
 			}
 		}
 		catch (Exception e) {
 			System.out.println("Err 6.1 : Exception not handled : " + e);
 		    e.printStackTrace();
 		}
+		
+		nbZeroEdges = net.getTransition(0).getOutEdges().size();
+		try {
+			net.addZero(net.getPlace(0),net.getTransition(0));
+			System.out.println("Err 6.2 : Added a ZeroEdge where one already exists.");
+		}
+		catch (BadEntryException e) {
+		    if (net.getTransition(0).getOutEdges().size() != nbZeroEdges) {
+		    	System.out.println("Err 6.2 : Modified number of ZeroEdges though invalid ZeroEdge.");
+		    }
+		}
+		catch (Exception e) {
+		    System.out.println("Err 6.2 : Exception not handled : " + e);
+		    e.printStackTrace();
+		}
 	}
 	
 	public static void addEmptyEdgesTest() throws BadEntryException {
-		//TODO
+		int nbEmptyEdges = 0;
+		
+		System.out.println("Testing addition of empty edges in a Petri Net");
+		
+		PetriNetImplementation net = new PetriNetImplementation();
+		//populating the net
+		net.add(new Place(0));
+		net.add(new Place(0));
+		net.add(new Transition());
+		
+		nbEmptyEdges = net.getTransition(0).getOutEdges().size();
+		try {
+			net.addEmpty(net.getPlace(0), net.getTransition(0));
+			if ((nbEmptyEdges + 1) != net.getTransition(0).getOutEdges().size()) {
+				System.out.println("Err 7.1 : Number of EmptyEdges did not go up by one after adding one EmptyEdge.");
+			}
+		}
+		catch (Exception e) {
+			System.out.println("Err 7.1 : Exception not handled : " + e);
+		    e.printStackTrace();
+		}
+		
+		nbEmptyEdges = net.getTransition(0).getOutEdges().size();
+		try {
+			net.addEmpty(net.getPlace(0),net.getTransition(0));
+			System.out.println("Err 7.2 : Added a EmptyEdge where one already exists.");
+		}
+		catch (BadEntryException e) {
+		    if (net.getTransition(0).getOutEdges().size() != nbEmptyEdges) {
+		    	System.out.println("Err 7.2 : Modified number of EmptyEdges though invalid EmptyEdge.");
+		    }
+		}
+		catch (Exception e) {
+		    System.out.println("Err 7.2 : Exception not handled : " + e);
+		    e.printStackTrace();
+		}
 	}
 	
 	public static void main(String[] args) throws BadEntryException {
