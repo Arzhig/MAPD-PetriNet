@@ -18,11 +18,11 @@ public class EdgeOut extends Edge{
      */
 	public EdgeOut(int value, Place place) throws BadEntryException {
 		super(value, place);
-		if (value<0) {
+		if (value < 0) {
 			throw new BadEntryException("EdgeOut can't have a negative value");
 		}
 		else if (value==0) {
-			if(this.getClass()!=EdgeZero.class) {
+			if(this.getClass()!= EdgeZero.class) {
 				throw new BadEntryException("Consider adding a EdgeZero instead");
 			}
 		}
