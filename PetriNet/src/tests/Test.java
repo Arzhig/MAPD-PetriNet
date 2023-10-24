@@ -277,13 +277,55 @@ public class Test {
 		}
 	}
 	
-	public static void main(String[] args) throws BadEntryException {
-		Test.initializationTest();
+	public static void removeTest() throws BadEntryException {
+		int nbPlaces = 0;
+		int nbTransitions = 0;
+		
+		System.out.println("Testing removal of Places and Transitions in a Petri Net");
+		
+		PetriNetImplementation net = new PetriNetImplementation();
+		//populating the net
+		net.add(new Place(0));
+		net.add(new Place(0));
+		net.add(new Transition());
+		net.add(new Transition());
+		
+		nbTransitions = net.getTransitions().size();
+		nbPlaces = net.getPlaces().size();
+		try {
+			net.remove(net.getPlace(0));
+			if ((nbPlaces - 1) != net.getPlaces().size()) {
+				System.out.println("Err 8.1 : Number of Places did not go down by one after removing one Place.");
+			}
+		}
+		catch (Exception e) {
+			System.out.println("Err 8.1 : Exception not handled : " + e);
+		    e.printStackTrace();
+		}
+		try {
+			net.remove(net.getTransition(0));
+			if ((nbTransitions - 1) != net.getTransitions().size()) {
+				System.out.println("Err 8.2 : Number of Transitions did not go down by one after removing one Transition.");
+			}
+		}
+		catch (Exception e) {
+			System.out.println("Err 8.2 : Exception not handled : " + e);
+		    e.printStackTrace();
+		}
+	}
+	
+	public static void addTests() throws BadEntryException {
 		Test.addPlacesTest();
 		Test.addTransitionsTest();
 		Test.addInEdgesTest();
 		Test.addOutEdgesTest();
 		Test.addZeroEdgesTest();
 		Test.addEmptyEdgesTest();
+	}
+	
+	public static void main(String[] args) throws BadEntryException {
+		Test.initializationTest();
+		Test.addTests();
+		Test.removeTest();
 	}
 }
