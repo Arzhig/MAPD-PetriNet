@@ -1,11 +1,11 @@
 package tests;
 import packnp.*;
-import exceptions.BadEntryException;
+import exceptions.IncorrectEdgeException;
 import items.*;
 
 public class Test2 {
 
-	public static void main(String[] args) throws BadEntryException {
+	public static void main(String[] args) throws IncorrectEdgeException {
 		
 		//Simple example : 1 origin place, 1 transition
 		PetriNetImplementation net = new PetriNetImplementation();
@@ -23,5 +23,6 @@ public class Test2 {
 		net.step(net.getTransition(1));
 		System.out.println("Tokens in place : " + net.getPlace(0).getToken()); // Expected 0
 		
+		System.out.println(net.toString());
 	}
 }

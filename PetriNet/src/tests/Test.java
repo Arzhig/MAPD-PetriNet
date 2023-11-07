@@ -8,6 +8,7 @@ public class Test {
 	
 	//SYSTEMATIC TESTS
 	public static void initializationTest() {
+		//REFACTORED
 		System.out.println("Testing  initialisation  of a brand new PetriNet");
 		try {
 			// A brand new PetriNet should contain no item

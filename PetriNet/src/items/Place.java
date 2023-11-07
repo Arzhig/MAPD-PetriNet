@@ -56,8 +56,13 @@ public class Place {
 	* @param rTokens number of tokens removed from the place
 	*/
 	
-	public void remove(int rTokens) {
-		this.setToken(this.getToken() - rTokens);
+	public void remove(int rTokens) throws BadEntryException{
+		if (this.getToken()<rTokens) {
+			throw new BadEntryException("Attempted to remove more tokens than available");
+		}
+		else {
+			this.setToken(this.getToken() - rTokens);
+		}
 	}
 
 }

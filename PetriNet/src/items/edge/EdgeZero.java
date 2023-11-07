@@ -32,9 +32,10 @@ public class EdgeZero extends EdgeOut {
 
     /**
      * Triggers the transition associated with this edge by removing all tokens (zero tokens) from the connected place.
+     * @throws BadEntryException 
      */
     @Override
-    public void trigger() {
+    public void trigger() throws BadEntryException {
         this.getPlace().remove(0);
     }
 }

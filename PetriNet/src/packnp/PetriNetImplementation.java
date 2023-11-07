@@ -2,8 +2,9 @@ package packnp;
 
 import java.util.LinkedList;
 import java.util.List;
-
 import exceptions.BadEntryException;
+import exceptions.DoubleEdgeException;
+import exceptions.IncorrectEdgeException;
 import items.Place;
 import items.Transition;
 import items.edge.EdgeIn;
@@ -57,68 +58,68 @@ public class PetriNetImplementation implements PetriNet{
 	}
 
 	@Override
-	public void add(Place place, Transition transition, int value) throws BadEntryException {
+	public void add(Place place, Transition transition, int value) throws IncorrectEdgeException {
 		boolean exists = false;
 		for(EdgeOut e : transition.getOutEdges()) {
-			if (e.getPlace()== place) {exists = true;}
+			if (e.getPlace().equals(place)) {exists = true;}
 		}
 		if (exists == false) {
 			EdgeOut outEdge = new EdgeOut(value, place);
 			transition.add(outEdge);
 		}
 		else {
-			throw new BadEntryException("Already exisiting edge between this place and transition");
+			throw new DoubleEdgeException("Already exisiting edge between this place and transition");
 		}
 	}
 
 	@Override
-	public void addZero(Place place, Transition transition) throws BadEntryException {
+	public void addZero(Place place, Transition transition) throws IncorrectEdgeException {
 		boolean exists = false;
 		for (EdgeOut e : transition.getOutEdges()) {
-			if (e.getPlace() == place) {exists = true;}
+			if (e.getPlace().equals(place)) {exists = true;}
 		}
 		if (!exists) {
 			EdgeZero zeroEdge = new EdgeZero(place);
 			transition.add(zeroEdge);
 		}
 		else {
-			throw new BadEntryException("Already existing edge between this place and transition.");
+			throw new DoubleEdgeException("Already existing edge between this place and transition.");
 		}
 	}
 
 	@Override
-	public void addEmpty(Place place, Transition transition) throws BadEntryException {
+	public void addEmpty(Place place, Transition transition) throws IncorrectEdgeException {
 		boolean exists = false;
 		for (EdgeOut e : transition.getOutEdges()) {
-			if (e.getPlace() == place) {exists = true;}
+			if (e.getPlace().equals(place)) {exists = true;}
 		}
 		if (!exists) {
 			EdgeEmpty emptyEdge = new EdgeEmpty(place);
 			transition.add(emptyEdge);	
 		}
 		else {
-			throw new BadEntryException("Already existing edge between this place and transition.");
+			throw new DoubleEdgeException("Already existing edge between this place and transition.");
 		}
 	}
 
 	@Override
-	public void add(Transition transition, Place place, int value) throws BadEntryException {
+	public void add(Transition transition, Place place, int value) throws IncorrectEdgeException {
 
 		boolean exists = false;
 		for(EdgeIn e : transition.getInEdges()) {
-			if (e.getPlace()==place) {exists = true;}
+			if (e.getPlace().equals(place)) {exists = true;}
 		}
 		if (exists == false) {
 			EdgeIn inEdge = new EdgeIn(value, place);
 			transition.add(inEdge);
 		}
 		else {
-			throw new BadEntryException("Already exisiting edge between this transition and place");
+			throw new DoubleEdgeException("Already exisiting edge between this transition and place");
 		}
 	}
 
 	@Override
-	public void step(Transition transition) {
+	public void step(Transition transition) throws IncorrectEdgeException {
 		transition.step();
 	}
 
@@ -145,5 +146,55 @@ public class PetriNetImplementation implements PetriNet{
 			transition.remove(inEdge);
 		}
 	}
+	
+	@Override
+	public String toString() {
+	    int numPlaces = places.size();
+	    int numTransitions = transitions.size();
+	    int numArcs = 0;
+
+	    for (Transition transition : transitions) {
+	        numArcs += transition.getInEdges().size() + transition.getOutEdges().size();
+	    }
+
+	    StringBuilder sb = new StringBuilder("Petri Net\n");
+	    sb.append(numPlaces).append(" places\n");
+	    sb.append(numTransitions).append(" transitions\n");
+	    sb.append(numArcs).append(" arcs\n");
+
+	    sb.append("List of places:\n");
+	    for (int i = 0; i < numPlaces; i++) {
+	        Place place = places.get(i);
+	        sb.append(i + 1).append(" : place with ").append(place.getToken()).append(" tokens\n");
+	    }
+
+	    sb.append("List of transitions:\n");
+	    for (int i = 0; i < numTransitions; i++) {
+	        Transition transition = transitions.get(i);
+	        sb.append(i + 1).append(" : transition, ");
+	        sb.append(transition.getInEdges().size()).append(" arcs incoming, ");
+	        sb.append(transition.getOutEdges().size()).append(" arcs outgoing\n");
+	    }
+
+	    sb.append("List of arcs:\n");
+	    int arcCount = 1;
+	    for (Transition transition : transitions) {
+	        for (EdgeIn inEdge : transition.getInEdges()) {
+	            sb.append(arcCount).append(" : arc with weight ").append(inEdge.getValue());
+	            sb.append(" (place with ").append(inEdge.getPlace().getToken()).append(" tokens to transition)\n");
+	            arcCount++;
+	        }
+
+	        for (EdgeOut outEdge : transition.getOutEdges()) {
+	            sb.append(arcCount).append(" : arc with weight ").append(outEdge.getValue());
+	            sb.append(" (transition to place with ").append(outEdge.getPlace().getToken()).append(" tokens)\n");
+	            arcCount++;
+	        }
+	    }
+
+	    return sb.toString();
+	}
+
+	
 
 }

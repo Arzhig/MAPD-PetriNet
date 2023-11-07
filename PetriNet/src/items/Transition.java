@@ -1,6 +1,8 @@
 package items;
 import java.util.LinkedList;
 import java.util.List;
+
+import exceptions.BadEntryException;
 import items.edge.EdgeIn;
 import items.edge.EdgeOut;
 
@@ -39,8 +41,9 @@ public class Transition {
 	
 	/**
 	* Tests if the transition is triggerable, and if it's the case then fires it
+	 * @throws BadEntryException 
 	*/
-	public void step() {
+	public void step() throws BadEntryException {
 		boolean isTriggerable = true;
 		for (EdgeOut outEdge : outEdges) {
 			isTriggerable = outEdge.isTriggerable() && isTriggerable;
@@ -76,7 +79,11 @@ public class Transition {
 	* @param outEdge an edge coming from a place
 	*/
 	public void remove(EdgeOut outEdge) {
-		this.getOutEdges().remove(outEdge);
+		for (int k = 0; k < this.getOutEdges().size(); k++) {
+			if ((this.getOutEdges().get(k).getPlace().equals(outEdge.getPlace())) && (this.getOutEdges().get(k).getValue() == outEdge.getValue())) {
+				this.getOutEdges().remove(k);
+			}
+		}
 	}
 	
 	/** 
@@ -84,6 +91,10 @@ public class Transition {
 	* @param outEdge an edge going to a place
 	*/
 	public void remove(EdgeIn inEdge) {
-		this.getInEdges().remove(inEdge);
+		for (int k = 0; k < this.getInEdges().size(); k++) {
+			if ((this.getInEdges().get(k).getPlace().equals(inEdge.getPlace())) && (this.getInEdges().get(k).getValue() == inEdge.getValue())) {
+				this.getInEdges().remove(k);
+			}
+		}
 	}
 }

@@ -7,7 +7,7 @@ package exceptions;
  */
 
 @SuppressWarnings("serial")
-public class BadEntryException extends Exception {
+public class BadEntryException extends IncorrectEdgeException {
 
 	public BadEntryException(String message) {
 		super(message);
