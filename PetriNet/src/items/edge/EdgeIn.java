@@ -1,5 +1,5 @@
 package items.edge;
-import exceptions.*;
+import exceptions.IncorrectArgumentException;
 import items.*;
 
 /**
@@ -15,10 +15,10 @@ public class EdgeIn extends Edge{
      * @param value      The value associated with the `EdgeIn`.
      * @param place      The place connected by the `EdgeIn`.
      */
-	public EdgeIn(int value, Place place) throws BadEntryException{
+	public EdgeIn(int value, Place place) throws IncorrectArgumentException{
 		super(value, place);
-		if (value<1) {
-			throw new BadEntryException("EdgeIn can't have a null or negative value");
+		if (value < 1) {
+			throw new IncorrectArgumentException("EdgeIn can't have a null or negative value");
 		}
 	}
 	/**

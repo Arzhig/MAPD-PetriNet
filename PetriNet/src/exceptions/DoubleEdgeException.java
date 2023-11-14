@@ -9,7 +9,7 @@ package exceptions;
  */
 
 @SuppressWarnings("serial")
-public class DoubleEdgeException extends IncorrectEdgeException {
+public class DoubleEdgeException extends StructureException {
 	
 	public DoubleEdgeException(String msg) {
 		super(msg);

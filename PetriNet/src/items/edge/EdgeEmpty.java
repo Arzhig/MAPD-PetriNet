@@ -1,5 +1,6 @@
 package items.edge;
-import exceptions.BadEntryException;
+import exceptions.IncorrectArgumentException;
+import exceptions.PetriNetException;
 import items.*;
 
 /**
@@ -15,10 +16,10 @@ public class EdgeEmpty extends EdgeOut {
      *
      * @param value      The value is fixed at -1 as a convention to identify an EdgeEmpty.
      * @param place      The place connected by the `EdgeEmpty`.
-     * @throws BadEntryException 
+     * @throws IncorrectArgumentException 
      */
-    public EdgeEmpty(Place place) throws BadEntryException {
-        super(1, place);
+    public EdgeEmpty(Place place) throws PetriNetException {
+        super(-1, place);
     }
 
     /**
@@ -33,10 +34,10 @@ public class EdgeEmpty extends EdgeOut {
 
     /**
      * Triggers the transition associated with this edge by removing all tokens from the connected place.
-     * @throws BadEntryException 
+     * @throws IncorrectArgumentException 
      */
     @Override
-    public void trigger() throws BadEntryException {
+    public void trigger() throws IncorrectArgumentException {
         this.getPlace().remove(this.getPlace().getToken());
     }
 }

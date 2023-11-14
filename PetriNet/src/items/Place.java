@@ -1,6 +1,6 @@
 package items;
 
-import exceptions.*;
+import exceptions.IncorrectArgumentException;
 
 /**
  * The Place class represents a place in a Petri net simulation, containing tokens.
@@ -16,12 +16,12 @@ public class Place {
 	//the current number of tokens in the place
 	private int token;
 	
-	public Place(int token) throws BadEntryException{
+	public Place(int token) throws IncorrectArgumentException{
 		if (token>=0) {
 			this.token = token;
 		}
 		else {
-			throw new BadEntryException("Token amount is negative");
+			throw new IncorrectArgumentException("Token amount is negative");
 		}
 	}
 	
@@ -56,9 +56,9 @@ public class Place {
 	* @param rTokens number of tokens removed from the place
 	*/
 	
-	public void remove(int rTokens) throws BadEntryException{
+	public void remove(int rTokens) throws IncorrectArgumentException{
 		if (this.getToken()<rTokens) {
-			throw new BadEntryException("Attempted to remove more tokens than available");
+			throw new IncorrectArgumentException("Attempted to remove more tokens than available");
 		}
 		else {
 			this.setToken(this.getToken() - rTokens);

@@ -1,5 +1,7 @@
 package items.edge;
-import exceptions.BadEntryException;
+import exceptions.PetriNetException;
+import exceptions.IncorrectArgumentException;
+import exceptions.IrrelevantClassException;
 import items.*;
 
 /**
@@ -14,17 +16,18 @@ public class EdgeOut extends Edge{
      *
      * @param value      The value associated with the EdgeOut.
      * @param place      The place connected by the EdgeOut.
-	 * @throws BadEntryException 
+	 * @throws IncorrectArgumentException 
      */
-	public EdgeOut(int value, Place place) throws BadEntryException {
+	public EdgeOut(int value, Place place) throws PetriNetException {
 		super(value, place);
-		if (value<0) {
-			throw new BadEntryException("EdgeOut can't have a negative value");
+		if (value < -1) {
+			throw new IncorrectArgumentException("EdgeOut can't have a negative value");
 		}
-		else if (value==0) {
-			if(this.getClass()!=EdgeZero.class) {
-				throw new BadEntryException("Consider adding a EdgeZero instead");
-			}
+		else if (value == -1 && this.getClass() != EdgeEmpty.class) {
+			throw new IrrelevantClassException("Consider adding a EdgeEmpty instead");
+		}
+		else if (value == 0 && this.getClass() != EdgeZero.class) {
+			throw new IrrelevantClassException("Consider adding a EdgeZero instead");
 		}
 	}
 	/**
@@ -37,9 +40,9 @@ public class EdgeOut extends Edge{
 	}
 	/**
      * Triggers the transition associated with this outgoing edge by removing tokens from the connected place.
-	 * @throws BadEntryException 
+	 * @throws IncorrectArgumentException 
      */
-	public void trigger() throws BadEntryException {
+	public void trigger() throws IncorrectArgumentException {
 		this.getPlace().remove(this.getValue());
 	}
 
