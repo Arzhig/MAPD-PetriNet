@@ -27,14 +27,13 @@ class PetriNetImplementationTest {
 		try {
 			// A brand new PetriNet should contain no item
 			PetriNetImplementation net = new PetriNetImplementation();
-			if (net.getPlaces().size()!=0) {
-				System.out.println("Err 1.1 : Non-zero number of places in newly created network");
-				System.exit(1);
-			}
-			if (net.getTransitions().size()!=0) {
-				System.out.println("Err 1.1 : Non-zero number of transitions in newly created network");
-				System.exit(1);
-			}	
+			
+			Assertions.assertEquals(net.getPlaces().size(), 0);
+			Assertions.assertEquals(net.getTransitions().size(), 0);
+			
+		}
+		catch (AssertionFailedError e) {
+			fail("The net has not been correctly initialized.");
 		}
 		catch (Exception e) {
 		    System.out.println("Unexpected exception : " + e);
@@ -220,7 +219,7 @@ class PetriNetImplementationTest {
 			net.add(p1);
 			net.add(net.getTransition(0), net.getPlace(0), nTokens);
 			EdgeIn e1 = net.getTransition(0).getInEdges().get(0);
-			Assertions.assertEquals(e1.getValue(), 1);
+			Assertions.assertEquals(e1.getValue(), nTokens);
 			Assertions.assertEquals(e1.getPlace(), p1);
 		}
 		catch (DoubleEdgeException e) {
