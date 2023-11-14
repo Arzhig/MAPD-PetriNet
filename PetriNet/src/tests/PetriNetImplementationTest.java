@@ -361,27 +361,6 @@ class PetriNetImplementationTest {
 		net.add(t5);
 		net.add(t6);
 		net.add(t7);
-		try {
-			Place p51 = new Place(0);
-			Place p52 = new Place(0);
-			Place p53 = new Place(0);
-			Place p61 = new Place(0);
-			Place p62 = new Place(0);
-			Place p71 = new Place(0);
-			Place p72 = new Place(0);
-			net.add(p51);
-			net.add(p52);
-			net.add(p53);
-			net.add(p61);
-			net.add(p62);
-			net.add(p71);
-			net.add(p72);
-		} catch (IncorrectArgumentException e) {
-			fail("Err x : The place created was given incorrect arguments.");
-		}
-		catch (Exception e) {
-			fail("Err x : Exception not handled : " + e);
-		}
 		
 		//Lone transition in
 		try {
