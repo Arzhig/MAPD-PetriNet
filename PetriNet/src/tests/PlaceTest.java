@@ -35,7 +35,9 @@ class PlaceTest {
 		int aTokens = 2;
 		try {
 			Place p1 = new Place(tokens);
-			
+		}
+		catch (IncorrectArgumentException e) {
+			fail("The test failed");
 		}
 	}
 
