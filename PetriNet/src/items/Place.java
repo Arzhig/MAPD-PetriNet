@@ -17,11 +17,11 @@ public class Place {
 	private int token;
 	
 	public Place(int token) throws IncorrectArgumentException{
-		if (token>=0) {
+		if (token >= 0) {
 			this.token = token;
 		}
 		else {
-			throw new IncorrectArgumentException("Token amount is negative");
+			throw new IncorrectArgumentException("Token amount cannot be negative.");
 		}
 	}
 	
@@ -47,7 +47,10 @@ public class Place {
 	* @param aTokens number of tokens added to the place
 	*/
 	
-	public void add(int aTokens) {
+	public void add(int aTokens) throws IncorrectArgumentException {
+		if (aTokens < 0) {
+			throw new IncorrectArgumentException("The number of tokens added cannot be negative.");
+		}
 		this.setToken(this.getToken() + aTokens); 
 	}
 	
@@ -58,7 +61,7 @@ public class Place {
 	
 	public void remove(int rTokens) throws IncorrectArgumentException{
 		if (this.getToken()<rTokens) {
-			throw new IncorrectArgumentException("Attempted to remove more tokens than available");
+			throw new IncorrectArgumentException("Attempted to remove more tokens than available.");
 		}
 		else {
 			this.setToken(this.getToken() - rTokens);

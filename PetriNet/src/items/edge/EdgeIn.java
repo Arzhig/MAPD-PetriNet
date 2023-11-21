@@ -24,7 +24,7 @@ public class EdgeIn extends Edge{
 	/**
      * Triggers the transition associated with this incoming edge by adding tokens to the connected place.
      */
-	public void trigger() {
+	public void trigger() throws IncorrectArgumentException{
 		this.getPlace().add(this.getValue());
 	}
 
