@@ -1,4 +1,4 @@
-package org.pneditor.petrinet.models.imta.lerquemain_rabilloud;
+package org.pneditor.petrinet.models.lerquemain_rabilloud;
 
 /**
  * The `EdgeIn` class represents an edge in a Petri net simulation, coming into a Place from a transition.

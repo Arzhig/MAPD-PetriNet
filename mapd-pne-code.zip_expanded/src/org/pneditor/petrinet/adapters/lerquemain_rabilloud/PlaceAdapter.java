@@ -1,7 +1,7 @@
-package org.pneditor.petrinet.adapters.imta.lerquemain_rabilloud;
+package org.pneditor.petrinet.adapters.lerquemain_rabilloud;
 
 import org.pneditor.petrinet.*;
-import org.pneditor.petrinet.models.imta.lerquemain_rabilloud.*;
+import org.pneditor.petrinet.models.lerquemain_rabilloud.*;
 
 public class PlaceAdapter extends AbstractPlace {
 	

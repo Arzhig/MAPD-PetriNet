@@ -1,4 +1,4 @@
-package org.pneditor.petrinet.models.imta.lerquemain_rabilloud;
+package org.pneditor.petrinet.models.lerquemain_rabilloud;
 
 /**
  * The `Edge` class represents an edge in a Petri net simulation, connecting a transition to a place.

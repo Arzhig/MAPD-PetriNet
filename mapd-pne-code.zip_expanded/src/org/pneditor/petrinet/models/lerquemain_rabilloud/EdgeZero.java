@@ -1,4 +1,4 @@
-package org.pneditor.petrinet.models.imta.lerquemain_rabilloud;
+package org.pneditor.petrinet.models.lerquemain_rabilloud;
 
 /**
  * The `EdgeZero` class represents an edge in a Petri net simulation, going out of a Place and into a transition,

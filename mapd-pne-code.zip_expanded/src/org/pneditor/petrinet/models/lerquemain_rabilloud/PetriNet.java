@@ -1,4 +1,4 @@
-package org.pneditor.petrinet.models.imta.lerquemain_rabilloud;
+package org.pneditor.petrinet.models.lerquemain_rabilloud;
 
 /**
  * The PetriNet interface declares the methods required to create a Petri net.
