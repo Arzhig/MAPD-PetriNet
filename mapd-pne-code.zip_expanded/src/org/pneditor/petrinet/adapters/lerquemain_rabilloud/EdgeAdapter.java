@@ -3,8 +3,10 @@ import org.pneditor.petrinet.AbstractArc;
 import org.pneditor.petrinet.AbstractNode;
 import org.pneditor.petrinet.ResetArcMultiplicityException;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.Edge;
+import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeEmpty;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeIn;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeOut;
+import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeZero;
 
 public class EdgeAdapter extends AbstractArc{
 	
@@ -23,7 +25,7 @@ public class EdgeAdapter extends AbstractArc{
 			return new PlaceAdapter("", this.getEdge().getPlace());
 		}
 		
-		return null;
+		return new TransitionAdapter("", this.getEdge().getTransition());
 	}
 
 	@Override
@@ -32,23 +34,22 @@ public class EdgeAdapter extends AbstractArc{
 			return new PlaceAdapter("", this.getEdge().getPlace());
 		}
 		
-		return null;
+		return new TransitionAdapter("", this.getEdge().getTransition());
 	}
 
 	@Override
 	public boolean isReset() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.getEdge().getClass() == EdgeEmpty.class;
 	}
 
 	@Override
 	public boolean isRegular() {
-		return false;
+		return !(this.isReset() && this.isInhibitory());
 	}
 
 	@Override
 	public boolean isInhibitory() {
-		return false;
+		return this.getEdge().getClass() == EdgeZero.class;
 	}
 
 	@Override
@@ -56,11 +57,14 @@ public class EdgeAdapter extends AbstractArc{
 		if (this.isReset()) {
 			throw new ResetArcMultiplicityException();
 		}
-		return 0;
+		return this.getEdge().getValue();
 	}
 
 	@Override
 	public void setMultiplicity(int multiplicity) throws ResetArcMultiplicityException {
-		
+		if (multiplicity < 0) {
+			throw new ResetArcMultiplicityException();
+		}
+		this.getEdge().setValue(multiplicity);
 	}
 }
