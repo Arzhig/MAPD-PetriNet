@@ -63,6 +63,7 @@ public class Transition {
 	* @param outEdge an edge coming from a place
 	*/
 	public void add(EdgeOut outEdge) {
+		outEdge.setTransition(this);
 		this.getOutEdges().add(outEdge);
 	}
 	
@@ -71,6 +72,7 @@ public class Transition {
 	* @param inEdge an edge going to a place
 	*/
 	public void add(EdgeIn inEdge) {
+		inEdge.setTransition(this);
 		this.getInEdges().add(inEdge);
 	}
 	

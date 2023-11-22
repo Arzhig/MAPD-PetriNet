@@ -63,7 +63,7 @@ public class PetriNetImplementation implements PetriNet{
 			if (e.getPlace().equals(place)) {exists = true;}
 		}
 		if (exists == false) {
-			EdgeOut outEdge = new EdgeOut(value, place);
+			EdgeOut outEdge = new EdgeOut(place, transition, value);
 			transition.add(outEdge);
 		}
 		else {
@@ -78,7 +78,7 @@ public class PetriNetImplementation implements PetriNet{
 			if (e.getPlace().equals(place)) {exists = true;}
 		}
 		if (!exists) {
-			EdgeZero zeroEdge = new EdgeZero(place);
+			EdgeZero zeroEdge = new EdgeZero(place, transition);
 			transition.add(zeroEdge);
 		}
 		else {
@@ -93,7 +93,7 @@ public class PetriNetImplementation implements PetriNet{
 			if (e.getPlace().equals(place)) {exists = true;}
 		}
 		if (!exists) {
-			EdgeEmpty emptyEdge = new EdgeEmpty(place);
+			EdgeEmpty emptyEdge = new EdgeEmpty(place, transition);
 			transition.add(emptyEdge);	
 		}
 		else {
@@ -109,7 +109,7 @@ public class PetriNetImplementation implements PetriNet{
 			if (e.getPlace().equals(place)) {exists = true;}
 		}
 		if (exists == false) {
-			EdgeIn inEdge = new EdgeIn(value, place);
+			EdgeIn inEdge = new EdgeIn(transition, place, value);
 			transition.add(inEdge);
 		}
 		else {
@@ -134,16 +134,12 @@ public class PetriNetImplementation implements PetriNet{
 
 	@Override
 	public void remove(EdgeOut outEdge) {
-		for (Transition transition : this.getTransitions()) {
-			transition.remove(outEdge);
-		}
+		outEdge.getTransition().remove(outEdge);
 	}
 
 	@Override
 	public void remove(EdgeIn inEdge) {
-		for (Transition transition : this.getTransitions()) {
-			transition.remove(inEdge);
-		}
+		inEdge.getTransition().remove(inEdge);
 	}
 	
 	@Override

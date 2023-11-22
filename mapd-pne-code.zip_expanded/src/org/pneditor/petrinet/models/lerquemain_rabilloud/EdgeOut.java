@@ -1,6 +1,5 @@
 package org.pneditor.petrinet.models.lerquemain_rabilloud;
 
-
 /**
  * The `EdgeOut` class represents an edge in a Petri net simulation, going out of a Place and into a transition.
  * This class extends 'Edge',and has the ability to trigger.
@@ -15,8 +14,8 @@ public class EdgeOut extends Edge{
      * @param place      The place connected by the EdgeOut.
 	 * @throws IncorrectArgumentException 
      */
-	public EdgeOut(int value, Place place) throws PetriNetException {
-		super(value, place);
+	public EdgeOut(Place place, Transition transition, int value) throws PetriNetException {
+		super(value, place, transition);
 		if (value < -1) {
 			throw new IncorrectArgumentException("EdgeOut can't have a negative value");
 		}

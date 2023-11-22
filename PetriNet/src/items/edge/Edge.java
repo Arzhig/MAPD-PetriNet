@@ -18,14 +18,20 @@ public class Edge {
 	private Place place;
 	
 	/**
+	 * The transition connected to this edge.
+	 */
+	private Transition transition;
+	
+	/**
      * Constructs a new edge with the specified value and place.
      *
      * @param value      The value associated with the edge.
      * @param place      The place connected by the edge.
      */
-	public Edge(int value, Place place){
+	public Edge(int value, Place place, Transition transition){
 		this.value = value;
 		this.place = place;
+		this.transition = transition;
 	}
 	
 	/**
@@ -63,4 +69,25 @@ public class Edge {
 	public void setPlace(Place place) {
 		this.place = place;
 	}
+	
+	
+	/**
+     * Get the transition connected to this edge.
+     *
+     * @return transition The connected transition.
+     */
+	public Transition getTransition() {
+		return this.transition;
+	}
+	
+	
+	/**
+     * Set the transition connected to this edge.
+     *
+     * @param transition The new transition to connect with the edge.
+     */
+	public void setTransition(Transition transition) {
+		this.transition = transition;
+	}
+	
 }

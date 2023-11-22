@@ -18,8 +18,8 @@ public class EdgeOut extends Edge{
      * @param place      The place connected by the EdgeOut.
 	 * @throws IncorrectArgumentException 
      */
-	public EdgeOut(int value, Place place) throws PetriNetException {
-		super(value, place);
+	public EdgeOut(Place place, Transition transition, int value) throws PetriNetException {
+		super(value, place, transition);
 		if (value < -1) {
 			throw new IncorrectArgumentException("EdgeOut can't have a negative value");
 		}

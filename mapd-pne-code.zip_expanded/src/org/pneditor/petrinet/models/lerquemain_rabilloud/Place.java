@@ -24,6 +24,10 @@ public class Place {
 		}
 	}
 	
+	public Place() {
+		this.token = 0;
+	}
+	
 	/**
 	* @return current number of tokens in the place
 	*/

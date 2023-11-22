@@ -7,36 +7,38 @@ public class PlaceAdapter extends AbstractPlace {
 	
 	private Place place;
 	
-	public PlaceAdapter(String label){
+	public PlaceAdapter(String label, Place place){
 		super(label);
-		try {
-			this.place = new Place(0);
-		} catch (IncorrectArgumentException e) {
-		}
+		this.place = place;
+	}
+
+	public Place getPlace() {
+		return this.place;
+	}
+	
+	@Override
+	public int getTokens() {
+		return this.getPlace().getToken();
 	}
 
 	@Override
+	public void setTokens(int tokens) {
+		this.getPlace().setToken(tokens);
+		
+	}
+	
+	@Override
 	public void addToken() {
-		this.place.add(1);
+		this.getPlace().add(1);
 	}
 
 	@Override
 	public void removeToken() {
 		try {
-			this.place.remove(1);
+			this.getPlace().remove(1);
 		} catch (IncorrectArgumentException e) {
+			System.out.println("The number of tokens removed is incorrect.");
 		}
-		
-	}
-
-	@Override
-	public int getTokens() {
-		return this.place.getToken();
-	}
-
-	@Override
-	public void setTokens(int tokens) {
-		this.place.setToken(tokens);
 		
 	}
 

@@ -742,9 +742,9 @@ class PetriNetImplementationTest {
 			net.add(p2, t1, n2);
 			net.add(p3, t1, n3);
 			
-			EdgeOut e1 = new EdgeOut(n1,p1);
-			EdgeOut e2 = new EdgeOut(n2,p2);
-			EdgeOut e3 = new EdgeOut(n3,p3);
+			EdgeOut e1 = new EdgeOut(p1, t1, n1);
+			EdgeOut e2 = new EdgeOut(p2, t1, n2);
+			EdgeOut e3 = new EdgeOut(p3, t1, n3);
 
 			net.remove(e2);
 			
@@ -789,9 +789,9 @@ class PetriNetImplementationTest {
 			net.add(t1, p2, n2);
 			net.add(t1, p3, n3);
 			
-			EdgeIn e1 = new EdgeIn(n1,p1);
-			EdgeIn e2 = new EdgeIn(n2,p2);
-			EdgeIn e3 = new EdgeIn(n3,p3);
+			EdgeIn e1 = new EdgeIn(t1, p1, n1);
+			EdgeIn e2 = new EdgeIn(t1, p2, n2);
+			EdgeIn e3 = new EdgeIn(t1, p3, n3);
 
 			net.remove(e2);
 			

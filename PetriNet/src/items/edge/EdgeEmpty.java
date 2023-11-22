@@ -18,8 +18,8 @@ public class EdgeEmpty extends EdgeOut {
      * @param place      The place connected by the `EdgeEmpty`.
      * @throws IncorrectArgumentException 
      */
-    public EdgeEmpty(Place place) throws PetriNetException {
-        super(-1, place);
+    public EdgeEmpty(Place place, Transition transition) throws PetriNetException {
+        super(place,transition, -1);
     }
 
     /**

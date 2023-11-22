@@ -7,19 +7,21 @@ import org.pneditor.petrinet.AbstractTransition;
 import org.pneditor.petrinet.PetriNetInterface;
 import org.pneditor.petrinet.ResetArcMultiplicityException;
 import org.pneditor.petrinet.UnimplementedCaseException;
+import org.pneditor.petrinet.models.lerquemain_rabilloud.Place;
+import org.pneditor.petrinet.models.lerquemain_rabilloud.Transition;
 
 
 public class AdapterInterface extends PetriNetInterface{
 
 	@Override
 	public AbstractPlace addPlace() {
-		PlaceAdapter place = new PlaceAdapter("label");
-		return place;
+		PlaceAdapter placeAd = new PlaceAdapter("label", new Place());
+		return placeAd;
 	}
 
 	@Override
 	public AbstractTransition addTransition() {
-		TransitionAdapter transition = new TransitionAdapter("label");
+		TransitionAdapter transition = new TransitionAdapter("label", new Transition());
 		return transition;
 	}
 

@@ -15,8 +15,8 @@ public class EdgeZero extends EdgeOut {
      * @param place      The place connected by the `EdgeZero`.
      * @throws IncorrectArgumentException 
      */
-    public EdgeZero(Place place) throws PetriNetException {
-        super(0, place);
+	public EdgeZero(Place place, Transition transition) throws PetriNetException {
+        super(place,transition,0);
     }
 
     /**

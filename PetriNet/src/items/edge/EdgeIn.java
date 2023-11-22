@@ -15,8 +15,8 @@ public class EdgeIn extends Edge{
      * @param value      The value associated with the `EdgeIn`.
      * @param place      The place connected by the `EdgeIn`.
      */
-	public EdgeIn(int value, Place place) throws IncorrectArgumentException{
-		super(value, place);
+	public EdgeIn(Transition transition, Place place, int value) throws IncorrectArgumentException{
+		super(value, place, transition);
 		if (value < 1) {
 			throw new IncorrectArgumentException("EdgeIn can't have a null or negative value");
 		}
