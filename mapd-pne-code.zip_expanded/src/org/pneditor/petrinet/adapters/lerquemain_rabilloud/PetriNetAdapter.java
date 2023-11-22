@@ -7,11 +7,13 @@ import org.pneditor.petrinet.AbstractTransition;
 import org.pneditor.petrinet.PetriNetInterface;
 import org.pneditor.petrinet.ResetArcMultiplicityException;
 import org.pneditor.petrinet.UnimplementedCaseException;
+import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeOut;
+import org.pneditor.petrinet.models.lerquemain_rabilloud.PetriNetException;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.Place;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.Transition;
 
 
-public class AdapterInterface extends PetriNetInterface{
+public class PetriNetAdapter extends PetriNetInterface{
 
 	@Override
 	public AbstractPlace addPlace() {
@@ -27,7 +29,10 @@ public class AdapterInterface extends PetriNetInterface{
 
 	@Override
 	public AbstractArc addRegularArc(AbstractNode source, AbstractNode destination) throws UnimplementedCaseException {
-		// TODO Auto-generated method stub
+		if (source.getClass() == PlaceAdapter.class) { // if the condition is true it means we add an EdgeOut
+			EdgeAdapter edgeAdapted = new EdgeAdapter(new EdgeOut(((PlaceAdapter)source).getPlace(), ((TransitionAdapter)destination).getTransition()));
+			return edgeAdapted;
+		}
 		return null;
 	}
 

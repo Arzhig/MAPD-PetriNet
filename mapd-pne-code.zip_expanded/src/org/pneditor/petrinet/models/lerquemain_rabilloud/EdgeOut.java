@@ -26,6 +26,10 @@ public class EdgeOut extends Edge{
 			throw new IrrelevantClassException("Consider adding a EdgeZero instead");
 		}
 	}
+	
+	public EdgeOut(Place place, Transition transition) {
+		super(1, place, transition);
+	}
 	/**
      * Checks whether this outgoing edge is triggerable based on the token count in the connected place.
      *

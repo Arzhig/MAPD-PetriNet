@@ -1,5 +1,6 @@
 package org.pneditor.petrinet.models.lerquemain_rabilloud;
 
+
 /**
  * The `EdgeIn` class represents an edge in a Petri net simulation, coming into a Place from a transition.
  * This class extends the `Edge` class and adds functionality for triggering transitions.
@@ -19,6 +20,11 @@ public class EdgeIn extends Edge{
 			throw new IncorrectArgumentException("EdgeIn can't have a null or negative value");
 		}
 	}
+	
+	public EdgeIn(Transition transition, Place place) {
+		super(1, place, transition);
+	}
+	
 	/**
      * Triggers the transition associated with this incoming edge by adding tokens to the connected place.
      */

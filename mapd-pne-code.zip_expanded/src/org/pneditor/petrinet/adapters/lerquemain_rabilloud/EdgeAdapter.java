@@ -16,6 +16,10 @@ public class EdgeAdapter extends AbstractArc{
 		this.edge = edge;
 	}
 	
+	public EdgeAdapter() {
+		
+	}
+	
 	private Edge getEdge() {
 		return this.edge;
 	}
