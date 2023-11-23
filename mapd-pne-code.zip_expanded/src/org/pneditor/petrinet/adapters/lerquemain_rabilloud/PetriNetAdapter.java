@@ -7,8 +7,10 @@ import org.pneditor.petrinet.AbstractTransition;
 import org.pneditor.petrinet.PetriNetInterface;
 import org.pneditor.petrinet.ResetArcMultiplicityException;
 import org.pneditor.petrinet.UnimplementedCaseException;
+import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeEmpty;
+import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeIn;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeOut;
-import org.pneditor.petrinet.models.lerquemain_rabilloud.PetriNetException;
+import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeZero;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.Place;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.Transition;
 
@@ -30,29 +32,46 @@ public class PetriNetAdapter extends PetriNetInterface{
 	@Override
 	public AbstractArc addRegularArc(AbstractNode source, AbstractNode destination) throws UnimplementedCaseException {
 		if (source.getClass() == PlaceAdapter.class) { // if the condition is true it means we add an EdgeOut
-			EdgeAdapter edgeAdapted = new EdgeAdapter(new EdgeOut(((PlaceAdapter)source).getPlace(), ((TransitionAdapter)destination).getTransition()));
-			return edgeAdapted;
+			PlaceAdapter souPlace = (PlaceAdapter)source;
+			TransitionAdapter desTransition = (TransitionAdapter)destination;
+			EdgeOut edge = new EdgeOut(souPlace.getPlace(), desTransition.getTransition());
+			EdgeAdapter edgeOutAdapted = new EdgeAdapter(edge);
+			desTransition.getTransition().add(edge);
+			return edgeOutAdapted;
 		}
-		return null;
+		TransitionAdapter souTransition = (TransitionAdapter)source;
+		PlaceAdapter desPlace = (PlaceAdapter)destination;
+		EdgeIn edge = new EdgeIn(souTransition.getTransition(), desPlace.getPlace());
+		EdgeAdapter edgeInAdapted = new EdgeAdapter(edge);
+		souTransition.getTransition().add(edge);
+		return edgeInAdapted;
 	}
 
 	@Override
 	public AbstractArc addInhibitoryArc(AbstractPlace place, AbstractTransition transition)
 			throws UnimplementedCaseException {
-		// TODO Auto-generated method stub
-		return null;
+		PlaceAdapter aPlace = (PlaceAdapter)place;
+		TransitionAdapter aTransition = (TransitionAdapter)transition;
+		EdgeZero edge = new EdgeZero(aPlace.getPlace(), aTransition.getTransition());
+		EdgeAdapter edgeZeroAdapted = new EdgeAdapter(edge);
+		aTransition.getTransition().add(edge);
+		return edgeZeroAdapted;
 	}
 
 	@Override
 	public AbstractArc addResetArc(AbstractPlace place, AbstractTransition transition)
 			throws UnimplementedCaseException {
-		// TODO Auto-generated method stub
-		return null;
+		PlaceAdapter aPlace = (PlaceAdapter)place;
+		TransitionAdapter aTransition = (TransitionAdapter)transition;
+		EdgeEmpty edge = new EdgeEmpty(aPlace.getPlace(), aTransition.getTransition());
+		EdgeAdapter edgeEmptyAdapted = new EdgeAdapter(edge);
+		aTransition.getTransition().add(edge);
+		return edgeEmptyAdapted;
 	}
 
 	@Override
 	public void removePlace(AbstractPlace place) {
-		place = null;
+		
 	}
 
 	@Override

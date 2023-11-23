@@ -20,16 +20,21 @@ public class EdgeOut extends Edge{
 			throw new IncorrectArgumentException("EdgeOut can't have a negative value");
 		}
 		else if (value == -1 && this.getClass() != EdgeEmpty.class) {
-			throw new IrrelevantClassException("Consider adding a EdgeEmpty instead");
+			throw new IrrelevantClassException("Consider adding an EdgeEmpty instead");
 		}
 		else if (value == 0 && this.getClass() != EdgeZero.class) {
-			throw new IrrelevantClassException("Consider adding a EdgeZero instead");
+			throw new IrrelevantClassException("Consider adding an EdgeZero instead");
 		}
 	}
 	
 	public EdgeOut(Place place, Transition transition) {
 		super(1, place, transition);
 	}
+	
+	protected EdgeOut(int value, Place place, Transition transition) {
+		super(value, place, transition);
+	}
+	
 	/**
      * Checks whether this outgoing edge is triggerable based on the token count in the connected place.
      *

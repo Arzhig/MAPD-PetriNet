@@ -19,7 +19,7 @@ public class EdgeEmpty extends EdgeOut {
      * @throws IncorrectArgumentException 
      */
     public EdgeEmpty(Place place, Transition transition) throws PetriNetException {
-        super(place,transition, -1);
+        super(-1,place,transition);
     }
 
     /**

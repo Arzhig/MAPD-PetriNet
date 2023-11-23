@@ -35,6 +35,10 @@ public class EdgeOut extends Edge{
 		super(1, place, transition);
 	}
 	
+	protected EdgeOut(int value, Place place, Transition transition) {
+		super(value, place, transition);
+	}
+	
 	/**
      * Checks whether this outgoing edge is triggerable based on the token count in the connected place.
      *
