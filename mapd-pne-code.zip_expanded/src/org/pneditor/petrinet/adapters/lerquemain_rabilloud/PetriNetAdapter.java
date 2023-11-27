@@ -71,19 +71,34 @@ public class PetriNetAdapter extends PetriNetInterface{
 
 	@Override
 	public void removePlace(AbstractPlace place) {
-		
+		for (AbstractTransition transition : this.getTransitions()) {
+			for (AbstractArc arc : this.getConnectedArcs(transition)) {
+				EdgeAdapter edge = (EdgeAdapter)arc;
+				if (edge.isLinked(place)) {
+					this.removeArc(arc);
+				}
+			}
+		}
 	}
 
 	@Override
 	public void removeTransition(AbstractTransition transition) {
-		// TODO Auto-generated method stub
-		
+		for (AbstractArc arc : this.getConnectedArcs(transition)) {
+			this.removeAbstractArc(arc);
+		}
 	}
 
 	@Override
 	public void removeArc(AbstractArc arc) {
-		// TODO Auto-generated method stub
-		
+		EdgeAdapter edge = (EdgeAdapter)arc;
+		if (edge.getDestination().getClass() == TransitionAdapter.class) {
+			TransitionAdapter transition = (TransitionAdapter)edge.getDestination();
+			transition.getTransition().remove((EdgeOut)edge.getEdge());
+		}
+		else {
+			TransitionAdapter transition = (TransitionAdapter)edge.getSource();
+			transition.getTransition().remove((EdgeIn)edge.getEdge());
+		}
 	}
 
 	@Override

@@ -41,5 +41,12 @@ public class PlaceAdapter extends AbstractPlace {
 		}
 		
 	}
+	
+	public boolean equals(Object o) {
+		if (o != null && o.getClass() == PlaceAdapter.class) {
+			return ((PlaceAdapter)o).getPlace().equals(this.getPlace());
+		}
+		return false;
+	}
 
 }

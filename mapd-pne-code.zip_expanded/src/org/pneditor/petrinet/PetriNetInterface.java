@@ -175,7 +175,7 @@ public abstract class PetriNetInterface {
 			}
 		} catch (UnimplementedCaseException | ResetArcMultiplicityException e) {
 			// should never happen because source and destination are new objects
-			// and ResetArcMultiplicity sould not happen as well
+			// and ResetArcMultiplicity should not happen as well
 			PNEditorLogger.severeLogs(e.getMessage());
 		}
 		return newArc;

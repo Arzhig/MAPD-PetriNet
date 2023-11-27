@@ -15,4 +15,11 @@ public class TransitionAdapter extends AbstractTransition {
 	public Transition getTransition() {
 		return this.transition;
 	}
+	
+	public boolean equals(Object o) {
+		if (o != null && o.getClass() == TransitionAdapter.class) {
+			return ((TransitionAdapter)o).getTransition().equals(this.getTransition());
+		}
+		return false;
+	}
 }
