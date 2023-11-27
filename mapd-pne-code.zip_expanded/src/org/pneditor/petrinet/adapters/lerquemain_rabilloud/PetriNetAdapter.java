@@ -36,6 +36,7 @@ public class PetriNetAdapter extends PetriNetInterface{
 			TransitionAdapter desTransition = (TransitionAdapter)destination;
 			EdgeOut edge = new EdgeOut(souPlace.getPlace(), desTransition.getTransition());
 			EdgeAdapter edgeOutAdapted = new EdgeAdapter(edge);
+			//TODO : Add a DoubleEdgeException
 			desTransition.getTransition().add(edge);
 			return edgeOutAdapted;
 		}
@@ -43,6 +44,7 @@ public class PetriNetAdapter extends PetriNetInterface{
 		PlaceAdapter desPlace = (PlaceAdapter)destination;
 		EdgeIn edge = new EdgeIn(souTransition.getTransition(), desPlace.getPlace());
 		EdgeAdapter edgeInAdapted = new EdgeAdapter(edge);
+		//TODO : Add a DoubleEdgeException
 		souTransition.getTransition().add(edge);
 		return edgeInAdapted;
 	}
@@ -54,6 +56,7 @@ public class PetriNetAdapter extends PetriNetInterface{
 		TransitionAdapter aTransition = (TransitionAdapter)transition;
 		EdgeZero edge = new EdgeZero(aPlace.getPlace(), aTransition.getTransition());
 		EdgeAdapter edgeZeroAdapted = new EdgeAdapter(edge);
+		//TODO : Add a DoubleEdgeException
 		aTransition.getTransition().add(edge);
 		return edgeZeroAdapted;
 	}
@@ -65,6 +68,7 @@ public class PetriNetAdapter extends PetriNetInterface{
 		TransitionAdapter aTransition = (TransitionAdapter)transition;
 		EdgeEmpty edge = new EdgeEmpty(aPlace.getPlace(), aTransition.getTransition());
 		EdgeAdapter edgeEmptyAdapted = new EdgeAdapter(edge);
+		//TODO : Add a DoubleEdgeException
 		aTransition.getTransition().add(edge);
 		return edgeEmptyAdapted;
 	}
