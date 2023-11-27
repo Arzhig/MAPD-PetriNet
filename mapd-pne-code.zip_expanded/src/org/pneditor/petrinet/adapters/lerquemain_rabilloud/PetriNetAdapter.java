@@ -19,13 +19,13 @@ public class PetriNetAdapter extends PetriNetInterface{
 
 	@Override
 	public AbstractPlace addPlace() {
-		PlaceAdapter placeAd = new PlaceAdapter("label", new Place());
+		PlaceAdapter placeAd = new PlaceAdapter("", new Place());
 		return placeAd;
 	}
 
 	@Override
 	public AbstractTransition addTransition() {
-		TransitionAdapter transition = new TransitionAdapter("label", new Transition());
+		TransitionAdapter transition = new TransitionAdapter("", new Transition());
 		return transition;
 	}
 
