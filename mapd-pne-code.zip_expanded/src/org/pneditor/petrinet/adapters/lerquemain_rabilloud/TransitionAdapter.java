@@ -16,6 +16,19 @@ public class TransitionAdapter extends AbstractTransition {
 		return this.transition;
 	}
 	
+	public boolean isTriggerable() {
+		return this.getTransition().isTriggerable();
+	}
+	
+	public void step() {
+		try {
+			this.getTransition().step();
+		}
+		catch (IncorrectArgumentException e) {
+			
+		}
+	}
+	
 	public boolean equals(Object o) {
 		if (o != null && o.getClass() == TransitionAdapter.class) {
 			return ((TransitionAdapter)o).getTransition().equals(this.getTransition());

@@ -36,16 +36,20 @@ public class Transition {
 		return this.inEdges;
 	}
 	
+	public boolean isTriggerable() {
+		boolean isTriggerable = true;
+		for (EdgeOut outEdge : outEdges) {
+			isTriggerable = outEdge.isTriggerable() && isTriggerable;
+		}
+		return isTriggerable;
+	}
+	
 	/**
 	* Tests if the transition is triggerable, and if it's the case then fires it
 	 * @throws IncorrectArgumentException 
 	*/
 	public void step() throws IncorrectArgumentException {
-		boolean isTriggerable = true;
-		for (EdgeOut outEdge : outEdges) {
-			isTriggerable = outEdge.isTriggerable() && isTriggerable;
-		}
-		if (isTriggerable) {
+		if (this.isTriggerable()) {
 			for (EdgeOut outEdge : outEdges) {
 				outEdge.trigger();
 			}

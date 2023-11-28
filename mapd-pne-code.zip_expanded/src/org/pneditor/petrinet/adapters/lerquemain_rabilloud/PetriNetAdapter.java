@@ -107,14 +107,14 @@ public class PetriNetAdapter extends PetriNetInterface{
 
 	@Override
 	public boolean isEnabled(AbstractTransition transition) throws ResetArcMultiplicityException {
-		// TODO Auto-generated method stub
-		return false;
+		TransitionAdapter adaTransition = (TransitionAdapter)transition;
+		return adaTransition.isTriggerable();
 	}
 
 	@Override
 	public void fire(AbstractTransition transition) throws ResetArcMultiplicityException {
-		// TODO Auto-generated method stub
-		
+		TransitionAdapter adaTransition = (TransitionAdapter)transition;
+		adaTransition.step();
 	}
 
 }
