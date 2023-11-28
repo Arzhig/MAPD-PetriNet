@@ -29,6 +29,14 @@ public class TransitionAdapter extends AbstractTransition {
 		}
 	}
 	
+	public void add(EdgeIn inEdge) throws DoubleEdgeException {
+		this.getTransition().add(inEdge);
+	}
+	
+	public void add(EdgeOut outEdge) throws DoubleEdgeException {
+		this.getTransition().add(outEdge);
+	}
+	
 	public boolean equals(Object o) {
 		if (o != null && o.getClass() == TransitionAdapter.class) {
 			return ((TransitionAdapter)o).getTransition().equals(this.getTransition());

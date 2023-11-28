@@ -63,7 +63,10 @@ public class Transition {
 	* Connects an edge coming from a place to the transition
 	* @param outEdge an edge coming from a place
 	*/
-	public void add(EdgeOut outEdge) {
+	public void add(EdgeOut outEdge) throws DoubleEdgeException {
+		if (this.getOutEdges().contains(outEdge)) {
+			throw new DoubleEdgeException("An arc is already created between this source and destination");
+		}
 		outEdge.setTransition(this);
 		this.getOutEdges().add(outEdge);
 	}
@@ -72,7 +75,10 @@ public class Transition {
 	* Connects an edge going to a place to the transition
 	* @param inEdge an edge going to a place
 	*/
-	public void add(EdgeIn inEdge) {
+	public void add(EdgeIn inEdge) throws DoubleEdgeException {
+		if (this.getInEdges().contains(inEdge)) {
+			throw new DoubleEdgeException("An arc is already created between this source and destination");
+		}
 		inEdge.setTransition(this);
 		this.getInEdges().add(inEdge);
 	}

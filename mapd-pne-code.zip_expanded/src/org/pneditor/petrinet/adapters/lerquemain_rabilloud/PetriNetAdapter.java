@@ -7,12 +7,15 @@ import org.pneditor.petrinet.AbstractTransition;
 import org.pneditor.petrinet.PetriNetInterface;
 import org.pneditor.petrinet.ResetArcMultiplicityException;
 import org.pneditor.petrinet.UnimplementedCaseException;
+import org.pneditor.petrinet.models.lerquemain_rabilloud.DoubleEdgeException;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeEmpty;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeIn;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeOut;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeZero;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.Place;
 import org.pneditor.petrinet.models.lerquemain_rabilloud.Transition;
+
+import logger.PNEditorLogger;
 
 
 public class PetriNetAdapter extends PetriNetInterface{
@@ -36,16 +39,26 @@ public class PetriNetAdapter extends PetriNetInterface{
 			TransitionAdapter desTransition = (TransitionAdapter)destination;
 			EdgeOut edge = new EdgeOut(souPlace.getPlace(), desTransition.getTransition());
 			EdgeAdapter edgeOutAdapted = new EdgeAdapter(edge);
-			//TODO : Add a DoubleEdgeException
-			desTransition.getTransition().add(edge);
+			try {
+				desTransition.add(edge);
+			}
+			catch (DoubleEdgeException e) {
+				PNEditorLogger.infoLogs(e.getMessage());
+				return null;
+			}
 			return edgeOutAdapted;
 		}
 		TransitionAdapter souTransition = (TransitionAdapter)source;
 		PlaceAdapter desPlace = (PlaceAdapter)destination;
 		EdgeIn edge = new EdgeIn(souTransition.getTransition(), desPlace.getPlace());
 		EdgeAdapter edgeInAdapted = new EdgeAdapter(edge);
-		//TODO : Add a DoubleEdgeException
-		souTransition.getTransition().add(edge);
+		try {
+			souTransition.add(edge);
+		}
+		catch (DoubleEdgeException e) {
+			PNEditorLogger.infoLogs(e.getMessage());
+			return null;
+		}
 		return edgeInAdapted;
 	}
 
@@ -56,8 +69,13 @@ public class PetriNetAdapter extends PetriNetInterface{
 		TransitionAdapter aTransition = (TransitionAdapter)transition;
 		EdgeZero edge = new EdgeZero(aPlace.getPlace(), aTransition.getTransition());
 		EdgeAdapter edgeZeroAdapted = new EdgeAdapter(edge);
-		//TODO : Add a DoubleEdgeException
-		aTransition.getTransition().add(edge);
+		try {
+			aTransition.add(edge);
+		}
+		catch (DoubleEdgeException e) {
+			PNEditorLogger.infoLogs(e.getMessage());
+			return null;
+		}
 		return edgeZeroAdapted;
 	}
 
@@ -68,8 +86,13 @@ public class PetriNetAdapter extends PetriNetInterface{
 		TransitionAdapter aTransition = (TransitionAdapter)transition;
 		EdgeEmpty edge = new EdgeEmpty(aPlace.getPlace(), aTransition.getTransition());
 		EdgeAdapter edgeEmptyAdapted = new EdgeAdapter(edge);
-		//TODO : Add a DoubleEdgeException
-		aTransition.getTransition().add(edge);
+		try {
+			aTransition.add(edge);
+		}
+		catch (DoubleEdgeException e) {
+			PNEditorLogger.infoLogs(e.getMessage());
+			return null;
+		}
 		return edgeEmptyAdapted;
 	}
 
