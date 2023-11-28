@@ -50,5 +50,12 @@ public class EdgeOut extends Edge{
 	public void trigger() throws IncorrectArgumentException {
 		this.getPlace().remove(this.getValue());
 	}
+	
+	public boolean equals(Object o) {
+		if (o != null && o instanceof EdgeOut) {
+			return this.getPlace().equals(((EdgeOut)o).getPlace()) && this.getTransition().equals(((EdgeOut)o).getTransition());
+		}
+		return false;
+	}
 
 }

@@ -89,12 +89,4 @@ public class Edge {
 		this.transition = transition;
 	}
 	
-	public boolean equals(Object o) {
-		if (o != null && o instanceof Edge) {
-			Edge testo = (Edge)o;
-			return testo.getTransition().equals(this.getTransition()) && testo.getPlace().equals(this.getPlace()) && o.getClass() == this.getClass();
-		}
-		return false;
-	}
-	
 }
