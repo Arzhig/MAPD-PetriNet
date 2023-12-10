@@ -60,7 +60,7 @@ public class EdgeAdapter extends AbstractArc{
 	 */
 	@Override
 	public boolean isReset() {
-		return this.getEdge().getClass() == EdgeEmpty.class;
+		return this.getEdge().isEdgeEmpty();
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class EdgeAdapter extends AbstractArc{
 	 */
 	@Override
 	public boolean isRegular() {
-		return !(this.isReset() && this.isInhibitory());
+		return !(this.isReset() || this.isInhibitory());
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class EdgeAdapter extends AbstractArc{
 	 */
 	@Override
 	public boolean isInhibitory() {
-		return this.getEdge().getClass() == EdgeZero.class;
+		return this.getEdge().isEdgeZero();
 	}
 
 	/**
@@ -88,6 +88,7 @@ public class EdgeAdapter extends AbstractArc{
 	@Override
 	public int getMultiplicity() throws ResetArcMultiplicityException {
 		if (this.isReset()) {
+			System.out.println("Why do we try to get the multiplicity of an EdgeEmpty ???");
 			throw new ResetArcMultiplicityException();
 		}
 		return this.getEdge().getValue();

@@ -89,4 +89,22 @@ public class Edge {
 		this.transition = transition;
 	}
 	
+	/**
+     * Tests if the current edge is an EdgeZero.
+     *
+     * @return false
+     */
+	public boolean isEdgeZero() {
+		return false;
+	}
+	
+	/**
+     * Tests if the current edge is an EdgeEmpty.
+     *
+     * @return false
+     */
+	public boolean isEdgeEmpty() {
+		return false;
+	}
+	
 }

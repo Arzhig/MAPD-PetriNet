@@ -44,7 +44,7 @@ public class PetriNetAdapter extends PetriNetInterface{
 			}
 			catch (DoubleEdgeException e) {
 				PNEditorLogger.infoLogs(e.getMessage());
-				return null;
+				throw new UnimplementedCaseException("There is something wrong around here. The previous arc is supposed to be deleted");
 			}
 			return edgeOutAdapted;
 		}
@@ -57,7 +57,7 @@ public class PetriNetAdapter extends PetriNetInterface{
 		}
 		catch (DoubleEdgeException e) {
 			PNEditorLogger.infoLogs(e.getMessage());
-			return null;
+			throw new UnimplementedCaseException("There is something wrong around here. The previous arc is supposed to be deleted");
 		}
 		return edgeInAdapted;
 	}
@@ -74,7 +74,7 @@ public class PetriNetAdapter extends PetriNetInterface{
 		}
 		catch (DoubleEdgeException e) {
 			PNEditorLogger.infoLogs(e.getMessage());
-			return null;
+			throw new UnimplementedCaseException("There is something wrong around here. The previous arc is supposed to be deleted");
 		}
 		return edgeZeroAdapted;
 	}
@@ -91,7 +91,7 @@ public class PetriNetAdapter extends PetriNetInterface{
 		}
 		catch (DoubleEdgeException e) {
 			PNEditorLogger.infoLogs(e.getMessage());
-			return null;
+			throw new UnimplementedCaseException("There is something wrong around here. The previous arc is supposed to be deleted");
 		}
 		return edgeEmptyAdapted;
 	}

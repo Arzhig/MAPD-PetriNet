@@ -8,9 +8,10 @@ package org.pneditor.petrinet.models.lerquemain_rabilloud;
  */
 public class EdgeOut extends Edge{
 	/**
-     * Constructs a new EdgeOut with the specified value and place.
+     * Constructs a new EdgeOut with the specified value, transition and place.
      *
      * @param value      The value associated with the EdgeOut.
+     * @param transition      The transition connected by the EdgeOut.
      * @param place      The place connected by the EdgeOut.
 	 * @throws IncorrectArgumentException 
      */
@@ -27,10 +28,25 @@ public class EdgeOut extends Edge{
 		}
 	}
 	
+	/**
+     * Constructs a new EdgeOut with the specified transition and place, with a default value of 1.
+     *
+     * @param transition      The transition connected by the EdgeOut.
+     * @param place      The place connected by the EdgeOut.
+     */
 	public EdgeOut(Place place, Transition transition) {
 		super(1, place, transition);
 	}
 	
+	/**
+     * Constructs a new EdgeOut with the specified value, transition and place.
+     * This constructor is only accessible by EdgeEmpty and EdgeZero, it is built
+     * so that it does not throw an exception, when we are sure that the given value is valid.
+     *
+     * @param value      The value associated with the EdgeOut.
+     * @param transition      The transition connected by the EdgeOut.
+     * @param place      The place connected by the EdgeOut.
+     */
 	protected EdgeOut(int value, Place place, Transition transition) {
 		super(value, place, transition);
 	}
