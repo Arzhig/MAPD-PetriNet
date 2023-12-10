@@ -67,6 +67,12 @@ public class EdgeOut extends Edge{
 		this.getPlace().remove(this.getValue());
 	}
 	
+	/**
+	 * Tests if another edge is equals, by comparing the source and the destination
+	 * @param o an object to test
+	 * @return true if the object is the same edge; false otherwise
+	 */
+	@Override
 	public boolean equals(Object o) {
 		if (o != null && o instanceof EdgeOut) {
 			return this.getPlace().equals(((EdgeOut)o).getPlace()) && this.getTransition().equals(((EdgeOut)o).getTransition());

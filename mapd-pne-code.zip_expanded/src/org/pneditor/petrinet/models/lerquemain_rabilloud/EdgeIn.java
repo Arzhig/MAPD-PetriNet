@@ -40,6 +40,12 @@ public class EdgeIn extends Edge{
 		this.getPlace().add(this.getValue());
 	}
 	
+	/**
+	 * Tests if another edge is equals, by comparing the source and the destination
+	 * @param o an object to test
+	 * @return true if the object is the same edge; false otherwise
+	 */
+	@Override
 	public boolean equals(Object o) {
 		if (o != null && o instanceof EdgeIn) {
 			return this.getPlace().equals(((EdgeIn)o).getPlace()) && this.getTransition().equals(((EdgeIn)o).getTransition());

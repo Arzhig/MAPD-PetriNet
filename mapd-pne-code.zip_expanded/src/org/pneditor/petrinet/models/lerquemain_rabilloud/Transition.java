@@ -17,6 +17,9 @@ public class Transition {
 	private List<EdgeOut> outEdges;
 	private List<EdgeIn> inEdges;
 	
+	/**
+     * Constructs a new transition and initializes empty lists of edges.
+     */
 	public Transition() {
 		this.outEdges = new LinkedList<EdgeOut>();
 		this.inEdges = new LinkedList<EdgeIn>();
@@ -36,6 +39,10 @@ public class Transition {
 		return this.inEdges;
 	}
 	
+	/**
+	* Tests if the transition is triggerable
+	 * @return true if the transition is triggerable; false otherwise 
+	*/
 	public boolean isTriggerable() {
 		boolean isTriggerable = true;
 		for (EdgeOut outEdge : outEdges) {
@@ -88,11 +95,7 @@ public class Transition {
 	* @param outEdge an edge coming from a place
 	*/
 	public void remove(EdgeOut outEdge) {
-		for (int k = 0; k < this.getOutEdges().size(); k++) {
-			if ((this.getOutEdges().get(k).getPlace().equals(outEdge.getPlace())) && (this.getOutEdges().get(k).getValue() == outEdge.getValue())) {
-				this.getOutEdges().remove(k);
-			}
-		}
+		this.getOutEdges().remove(outEdge);
 	}
 	
 	/** 
@@ -100,10 +103,6 @@ public class Transition {
 	* @param outEdge an edge going to a place
 	*/
 	public void remove(EdgeIn inEdge) {
-		for (int k = 0; k < this.getInEdges().size(); k++) {
-			if ((this.getInEdges().get(k).getPlace().equals(inEdge.getPlace())) && (this.getInEdges().get(k).getValue() == inEdge.getValue())) {
-				this.getInEdges().remove(k);
-			}
-		}
+		this.getInEdges().remove(inEdge);
 	}
 }
