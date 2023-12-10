@@ -6,7 +6,7 @@ RABILLOUD Quentin - quentin.rabilloud@imt-atlantique.net
 # PetriNet
 - Java implementation of a petri Net
 - Transition centered petriNet.
-- Run tests.PetriNetImplementationTest to test the methods.
+- Run PetriNet/src/tests/PetriNetImplementationTest.java to test the methods.
 
 ## Modifications of conception :
 - Removed association between EdgeIn and Place, EdgeOut and Place, and put the association directly between Edge and Place.
