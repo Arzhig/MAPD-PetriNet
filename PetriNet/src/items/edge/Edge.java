@@ -1,5 +1,7 @@
 package items.edge;
-import items.*;
+
+import items.Place;
+import items.Transition;
 
 /**
  * The `Edge` class represents an edge in a Petri net simulation, connecting a transition to a place.
@@ -88,6 +90,24 @@ public class Edge {
      */
 	public void setTransition(Transition transition) {
 		this.transition = transition;
+	}
+	
+	/**
+     * Tests if the current edge is an EdgeZero.
+     *
+     * @return false
+     */
+	public boolean isEdgeZero() {
+		return false;
+	}
+	
+	/**
+     * Tests if the current edge is an EdgeEmpty.
+     *
+     * @return false
+     */
+	public boolean isEdgeEmpty() {
+		return false;
 	}
 	
 }

@@ -1,7 +1,8 @@
 package items.edge;
+
 import exceptions.IncorrectArgumentException;
-import exceptions.PetriNetException;
 import items.*;
+
 /**
  * The `EdgeZero` class represents an edge in a Petri net simulation, going out of a Place and into a transition,
  * which is only triggerable when the connected place has zero tokens.
@@ -10,14 +11,14 @@ import items.*;
  * @author Yann Lerquemain
  */
 public class EdgeZero extends EdgeOut {
-    /**
-     * Constructs a new `EdgeZero` with the specified value and place.
+	/**
+     * Constructs a new EdgeZero with the specified place and transition.
+     * The value is set at 0, as a convention.
      *
-     * @param value      The value is fixed at 0 as it is triggered when the place contains zero token.
-     * @param place      The place connected by the `EdgeZero`.
-     * @throws IncorrectArgumentException 
+     * @param place      The place connected by the EdgeZero.
+     * @param transition The transition connected by the EdgeZero
      */
-    public EdgeZero(Place place, Transition transition) {
+	public EdgeZero(Place place, Transition transition) {
         super(0,place,transition);
     }
 
@@ -38,5 +39,15 @@ public class EdgeZero extends EdgeOut {
     @Override
     public void trigger() throws IncorrectArgumentException {
         this.getPlace().remove(0);
+    }
+    
+    /**
+     * Tests if the current edge is an EdgeZero.
+     *
+     * @return true
+     */
+    @Override
+    public boolean isEdgeZero() {
+    	return true;
     }
 }

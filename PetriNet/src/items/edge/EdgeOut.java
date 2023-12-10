@@ -1,5 +1,6 @@
 package items.edge;
 import exceptions.PetriNetException;
+
 import exceptions.IncorrectArgumentException;
 import exceptions.IrrelevantClassException;
 import items.*;
@@ -12,9 +13,10 @@ import items.*;
  */
 public class EdgeOut extends Edge{
 	/**
-     * Constructs a new EdgeOut with the specified value and place.
+     * Constructs a new EdgeOut with the specified value, transition and place.
      *
      * @param value      The value associated with the EdgeOut.
+     * @param transition      The transition connected by the EdgeOut.
      * @param place      The place connected by the EdgeOut.
 	 * @throws IncorrectArgumentException 
      */
@@ -24,17 +26,32 @@ public class EdgeOut extends Edge{
 			throw new IncorrectArgumentException("EdgeOut can't have a negative value");
 		}
 		else if (value == -1 && this.getClass() != EdgeEmpty.class) {
-			throw new IrrelevantClassException("Consider adding a EdgeEmpty instead");
+			throw new IrrelevantClassException("Consider adding an EdgeEmpty instead");
 		}
 		else if (value == 0 && this.getClass() != EdgeZero.class) {
-			throw new IrrelevantClassException("Consider adding a EdgeZero instead");
+			throw new IrrelevantClassException("Consider adding an EdgeZero instead");
 		}
 	}
 	
+	/**
+     * Constructs a new EdgeOut with the specified transition and place, with a default value of 1.
+     *
+     * @param transition      The transition connected by the EdgeOut.
+     * @param place      The place connected by the EdgeOut.
+     */
 	public EdgeOut(Place place, Transition transition) {
 		super(1, place, transition);
 	}
 	
+	/**
+     * Constructs a new EdgeOut with the specified value, transition and place.
+     * This constructor is only accessible by EdgeEmpty and EdgeZero, it is built
+     * so that it does not throw an exception, when we are sure that the given value is valid.
+     *
+     * @param value      The value associated with the EdgeOut.
+     * @param transition      The transition connected by the EdgeOut.
+     * @param place      The place connected by the EdgeOut.
+     */
 	protected EdgeOut(int value, Place place, Transition transition) {
 		super(value, place, transition);
 	}
@@ -53,6 +70,13 @@ public class EdgeOut extends Edge{
      */
 	public void trigger() throws IncorrectArgumentException {
 		this.getPlace().remove(this.getValue());
+	}
+	
+	public boolean equals(Object o) {
+		if (o != null && o instanceof EdgeOut) {
+			return this.getPlace().equals(((EdgeOut)o).getPlace()) && this.getTransition().equals(((EdgeOut)o).getTransition());
+		}
+		return false;
 	}
 
 }

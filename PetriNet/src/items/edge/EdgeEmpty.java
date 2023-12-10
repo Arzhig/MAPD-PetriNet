@@ -1,6 +1,6 @@
 package items.edge;
+
 import exceptions.IncorrectArgumentException;
-import exceptions.PetriNetException;
 import items.*;
 
 /**
@@ -12,14 +12,14 @@ import items.*;
  */
 public class EdgeEmpty extends EdgeOut {
     /**
-     * Constructs a new `EdgeEmpty` with the specified value and place.
+     * Constructs a new `EdgeEmpty` with the specified place and transition.
+     * The value is set at -1, as a convention.
      *
-     * @param value      The value is fixed at -1 as a convention to identify an EdgeEmpty.
-     * @param place      The place connected by the `EdgeEmpty`.
-     * @throws IncorrectArgumentException 
+     * @param place      The place connected by the EdgeEmpty.
+     * @param transition The transition connected by the EdgeEmpty
      */
-    public EdgeEmpty(Place place, Transition transition) throws PetriNetException {
-        super(-1,place,transition);
+	public EdgeEmpty(Place place, Transition transition) {
+        super(-1, place,transition);
     }
 
     /**
@@ -40,4 +40,14 @@ public class EdgeEmpty extends EdgeOut {
     public void trigger() throws IncorrectArgumentException {
         this.getPlace().remove(this.getPlace().getToken());
     }
+    
+    /**
+     * Tests if the current edge is an EdgeEmpty.
+     *
+     * @return true
+     */
+	@Override
+	public boolean isEdgeEmpty() {
+		return true;
+	}
 }

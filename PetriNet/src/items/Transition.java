@@ -2,6 +2,8 @@ package items;
 import java.util.LinkedList;
 import java.util.List;
 
+
+import exceptions.DoubleEdgeException;
 import exceptions.IncorrectArgumentException;
 import items.edge.EdgeIn;
 import items.edge.EdgeOut;
@@ -39,16 +41,20 @@ public class Transition {
 		return this.inEdges;
 	}
 	
+	public boolean isTriggerable() {
+		boolean isTriggerable = true;
+		for (EdgeOut outEdge : outEdges) {
+			isTriggerable = outEdge.isTriggerable() && isTriggerable;
+		}
+		return isTriggerable;
+	}
+	
 	/**
 	* Tests if the transition is triggerable, and if it's the case then fires it
 	 * @throws IncorrectArgumentException 
 	*/
 	public void step() throws IncorrectArgumentException {
-		boolean isTriggerable = true;
-		for (EdgeOut outEdge : outEdges) {
-			isTriggerable = outEdge.isTriggerable() && isTriggerable;
-		}
-		if (isTriggerable) {
+		if (this.isTriggerable()) {
 			for (EdgeOut outEdge : outEdges) {
 				outEdge.trigger();
 			}
@@ -62,7 +68,10 @@ public class Transition {
 	* Connects an edge coming from a place to the transition
 	* @param outEdge an edge coming from a place
 	*/
-	public void add(EdgeOut outEdge) {
+	public void add(EdgeOut outEdge) throws DoubleEdgeException {
+		if (this.getOutEdges().contains(outEdge)) {
+			throw new DoubleEdgeException("An arc is already created between this source and destination");
+		}
 		outEdge.setTransition(this);
 		this.getOutEdges().add(outEdge);
 	}
@@ -71,7 +80,10 @@ public class Transition {
 	* Connects an edge going to a place to the transition
 	* @param inEdge an edge going to a place
 	*/
-	public void add(EdgeIn inEdge) {
+	public void add(EdgeIn inEdge) throws DoubleEdgeException {
+		if (this.getInEdges().contains(inEdge)) {
+			throw new DoubleEdgeException("An arc is already created between this source and destination");
+		}
 		inEdge.setTransition(this);
 		this.getInEdges().add(inEdge);
 	}
