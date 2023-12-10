@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeEmpty" 
-    project="mapd-pne-code.zip_expanded" 
-    file="/mapd-pne-code.zip_expanded/src/org/pneditor/petrinet/models/lerquemain_rabilloud/EdgeEmpty.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeEmpty" project="PNEditor" 
+    file="/PNEditor/src/org/pneditor/petrinet/models/lerquemain_rabilloud/EdgeEmpty.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="181" y="1260"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -13,9 +12,9 @@
     </display>  
   </class>  
   <class id="2" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.PetriNetImplementation" 
-    project="mapd-pne-code.zip_expanded" 
-    file="/mapd-pne-code.zip_expanded/src/org/pneditor/petrinet/models/lerquemain_rabilloud/PetriNetImplementation.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+    project="PNEditor" 
+    file="/PNEditor/src/org/pneditor/petrinet/models/lerquemain_rabilloud/PetriNetImplementation.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="653" y="392"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -23,9 +22,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeOut" 
-    project="mapd-pne-code.zip_expanded" 
-    file="/mapd-pne-code.zip_expanded/src/org/pneditor/petrinet/models/lerquemain_rabilloud/EdgeOut.java" binary="false" 
+  <class id="3" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeOut" project="PNEditor" 
+    file="/PNEditor/src/org/pneditor/petrinet/models/lerquemain_rabilloud/EdgeOut.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="441" y="1228"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -34,9 +32,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.Place" 
-    project="mapd-pne-code.zip_expanded" 
-    file="/mapd-pne-code.zip_expanded/src/org/pneditor/petrinet/models/lerquemain_rabilloud/Place.java" binary="false" 
+  <class id="4" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.Place" project="PNEditor" 
+    file="/PNEditor/src/org/pneditor/petrinet/models/lerquemain_rabilloud/Place.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="131" y="970"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -45,9 +42,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.Edge" 
-    project="mapd-pne-code.zip_expanded" 
-    file="/mapd-pne-code.zip_expanded/src/org/pneditor/petrinet/models/lerquemain_rabilloud/Edge.java" binary="false" 
+  <class id="5" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.Edge" project="PNEditor" 
+    file="/PNEditor/src/org/pneditor/petrinet/models/lerquemain_rabilloud/Edge.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="460" y="954"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -56,10 +52,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.Transition" 
-    project="mapd-pne-code.zip_expanded" 
-    file="/mapd-pne-code.zip_expanded/src/org/pneditor/petrinet/models/lerquemain_rabilloud/Transition.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.Transition" project="PNEditor" 
+    file="/PNEditor/src/org/pneditor/petrinet/models/lerquemain_rabilloud/Transition.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="895" y="921"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -67,9 +62,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeIn" 
-    project="mapd-pne-code.zip_expanded" 
-    file="/mapd-pne-code.zip_expanded/src/org/pneditor/petrinet/models/lerquemain_rabilloud/EdgeIn.java" binary="false" 
+  <class id="7" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeIn" project="PNEditor" 
+    file="/PNEditor/src/org/pneditor/petrinet/models/lerquemain_rabilloud/EdgeIn.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="517" y="698"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -78,10 +72,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="8" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.PetriNet" 
-    project="mapd-pne-code.zip_expanded" 
-    file="/mapd-pne-code.zip_expanded/src/org/pneditor/petrinet/models/lerquemain_rabilloud/PetriNet.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="8" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.PetriNet" project="PNEditor" 
+    file="/PNEditor/src/org/pneditor/petrinet/models/lerquemain_rabilloud/PetriNet.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="70" y="382"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -89,10 +82,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="9" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeZero" 
-    project="mapd-pne-code.zip_expanded" 
-    file="/mapd-pne-code.zip_expanded/src/org/pneditor/petrinet/models/lerquemain_rabilloud/EdgeZero.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="org.pneditor.petrinet.models.lerquemain_rabilloud.EdgeZero" project="PNEditor" 
+    file="/PNEditor/src/org/pneditor/petrinet/models/lerquemain_rabilloud/EdgeZero.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="784" y="1244"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -100,72 +92,96 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="10">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <generalization id="11">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
-  <association id="12">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="13" name="places"/>      
-      <multiplicity id="14" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="15">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
-  <realization id="16">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <generalization id="17">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="18">    
+  <association id="10">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="19" name="outEdges"/>      
-      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="21">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="22" name="inEdges"/>      
-      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
+      <attribute id="11" name="inEdges">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="12" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="24">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="25" name="transitions"/>      
-      <multiplicity id="26" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="27">    
+  <realization id="13">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <association id="14">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="28" name="place"/>      
-      <multiplicity id="29" minimum="0" maximum="1"/>    
+      <attribute id="15" name="place">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="16" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="30">    
+  <association id="17">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="31" name="transition"/>      
-      <multiplicity id="32" minimum="0" maximum="1"/>    
+      <attribute id="18" name="transition">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="19" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="20">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="21" name="places">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="23">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="26">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="27" name="transitions">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="30">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="31" name="outEdges">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="32" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
